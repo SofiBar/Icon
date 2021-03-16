@@ -352,7 +352,7 @@
 									<tr><td style="background-color:#a9d18e">cito</td> <td>  <a href="http://purl.org/spar/cito/"> http://purl.org/spar/cito/  </a> </td> </tr>
 									<tr><td style="background-color:#a9d18e">pro </td> <td>  <a href="http://purl.org/spar/pro/"> http://purl.org/spar/pro/ </a> </td> </tr>
 									<tr><td style="background-color:#ff7575">icon </td> <td> not modelled yet</td> </tr>
-									<tr><td style="background-color:#ffffff; border-color:#969696">prefix </td> <td> external links</td> </tr>
+									<tr><td style="background-color:#ffffff; border-color:#969696">ENI URI </td> <td> external links</td> </tr>
 								</table>
 							</div>
 						</div>
@@ -401,11 +401,13 @@
 									<h6> Formal representation of <i>Woman Holding a Balance</i> </h6>
 									<p> VIR ontology can model up to 3rd level meanings; it's necessary to shape the cultural phenomenon and action parallelism </p>
 							</div>
-							
-							<p>The actions’ parallelism considered above is expressed by means of a relation between two individuals of crm:E5_event, linked to the relation between the objects involved in the action. This solution is further applied in other following case studies in order to express other actions: the act of peeing made by the iconography of the puer mingens in Lotto’s Venus and Cupid (typology 1, case 2) and in the Annunciation in Wurzburg (typology 2, case 3), in which God blows in a tube inserted in Mary’s ear to fulfil the Immaculate Conception through the holy words. Each of these actions is a symbol of another event; this relation is expressed by a “refers to” hypothetical property linking the depicted event to the symbolic one.  
-							</p>
+							<p>The chart shows how it’s possible to represent the <b>artwork content by means of CIDOC-CRM and VIR ontologies</b>. Thus, the physical artwork (crm:E22_Man-Made_Object, in the bottom of the picture) is composed of iconographical atoms. One of them identifies all the pictorial surface, whereas the other two individuates two specific portions of it by the relation crm:P46_is_composed_of, as the domain of the relation is crm:E18_Physical_Thing, superclass of vir:IC1_Iconographical_Atom. This subdivision allows to specify at the same time the entire representation and its attributes (on the left) and all the relevant representations that should be described more in detail. In order to clarify this dependence, the relation vir:K20_is_composed_of relates the whole representation to istances representing specific parts contained in it. </p>
 							<p>As specified before, Vermeer’s painting presents two subjects at the same level. This is described by means of relating to the same vir:IC1_iconographical_atom labelled “woman” two individuals of vir:IC9_representation, one representing the woman holding a balance, the other representing the personification of Divine Justice; Van Straten will be specified as the author of the last identification. The two representations are linked by the relation vir:K23_connote. The same problem, for which we adopted the same solution, is present in the second case of typology 1, since the putto impersonating Cupid, identified by means of his arch and quiver, is at the same time acting as a puer mingens, a putto who pees in the sign of auspicious wish of fertility. 
 							</p>
+							<p>The <b>actions parallelism </b>considered above is expressed by means of a relation between two individuals of crm:E5_event, linked to the representation to which they belong by crm:P138_represents. It’s necessary to model a new relation, since the existing crm:P67_refers_to has as domain crm:E89_Propositional_object.</p>
+ 							<p>This solution is further applied in other following case studies in order to express other actions: the act of peeing made by the iconography of the puer mingens in Lotto’s Venus and Cupid (typology 1, case 2) and in the Annunciation in Wurzburg (typology 2, case 3), in which God blows in a tube inserted in Mary’s ear to fulfil the Immaculate Conception through the holy words. Each of these actions is a symbol of another event; this relation is expressed by a “refers to” hypothetical property linking the depicted event to the symbolic one.  
+							</p>
+
 
 							<div class="row">
 								<div class="10u 12u$(xsmall)">
@@ -417,6 +419,11 @@
 								<div    class="2u 12u$(xsmall)">
 									<h6> <i>Woman Holding a Balance</i> and <i>Allegory of Faith</i> formal representation </h6>
 									<p> Iconological recognition class can link the artwork to other ones involved in the same comprehension citing as evidence sources and image features which witness the intepretation </p>
+									<ul class="actions">	
+										<li><a href="#guide" class="button special">Legend</a></li>
+									</ul>
+									
+								</div>
 							</div>
 
 							<p>Finally, the iconological interpretation had been expressed by linking the two paintings taken into account (Vermeer’s woman holding a balance and Allegory of Faith) to the cultural phenomenon recognized by means of two instances of “iconological recognition”, an hypothetical model for a class that could represent iconological and iconographical interpretations not described by current ontologies. Since it’s on the basis of the recognition of the phenomenon in Allegory of Faith that its presence in the other painting it’s supposed, it’s considered worthwhile to express this dependence by means of the relation cito:obtainsBackgroundFrom. </p>
@@ -451,7 +458,9 @@
 							<div class="6u 12u">
 							
 								<h4>Artwork description</h4>
-								<p>Similar solutions had been adopted to represent Lotto’s Venus and Cupid (see Fig. 2). As cited in the descriptive table, symbols present in the scene can have a meaning belonging to themes related to love and marriage: fertility (puer mingens, cone shell), typical dressing of a Venetian bride (tiara, earrings, veil) bridal chamber (myrtle crown, red cloth, incense burner), seduction (Venus’ belt), love and fidelity (knotted ribbon bracelets, rose, ivy), jealousy (snake) and the stick with which Venus punished Cupid. These meanings can be recognized thanks to coeval visual and literary sources, including the classical ones that could be known at the time (Christiansen 1986, 2018). Furthermore, the theme of Cupid inviting Venus to hurry to preside over the wedding was widespread in classical epithalamic compositions and the remediation from literal to figurative medium happened by the habit of representing Venus and Paris on the inside of the lid of the wedding chests. 
+								<p>Similar solutions had been adopted to represent Lotto’s <i>Venus and Cupid </i>(see Fig. 2). The epithalamic message (l. 3) of this artwork had been interpreted on the basis of the symbols depicted, and related to the social tradition of  paintings donated as a wedding wish for wedding occasions (l. 4). 
+								 <p>The numerous symbols present in the scene can have a meaning belonging to themes related to love and marriage: fertility (<i>puer mingens</i>, cone shell), typical dressing of a Venetian bride (tiara, earrings, veil) bridal chamber (myrtle crown, red cloth, incense burner), seduction (Venus’ belt), love and fidelity (knotted ribbon bracelets, rose, ivy), jealousy (snake) and the stick with which Venus punished Cupid. These meanings can be recognized thanks to coeval visual and literary sources, including the classical ones that could be known at the time (Christiansen 1986, 2018). </p> 
+								 <p>Furthermore, the theme of Cupid inviting Venus to hurry to preside over the wedding was widespread in classical epithalamic compositions and the remediation from literal to figurative medium happened by the habit of representing Venus and Paris on the inside of the lid of the wedding chests. <p> On the basis of the interpretation of symbols and wedding clothes, added to Venus's acception as the deity of conjugal love, the painting has been recognized as clearly linked to the tradition of epithalamic paintings donated in wedding occasions. In addition, Christiansen (1986) recognizes that Venus could be the portrait of the bride to whom the painting was destinated for her marriage. 
 								</p> 
 							</div>
 						</div>
