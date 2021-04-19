@@ -362,17 +362,20 @@
 				</section>
 			<!-- description of single artworks -->
 				<section id="first_artwork" class="wrapper style1">
-
 					<div class="container 95%">
 						<header class="major">
 							<h2>The artworks</h2>
-						</header>						
+						</header>
+					</div>
+					<div class="container 150%" style="background-color:#95a8ce; padding:1em"> <!--alternative colors: pink #f2cddd ; light blue #dae9fa or #afc5f4 ; green #c3ead1 -->
+
+						
 						<header class="major">
 							<h3>Jan Vermeer's <i>Woman holding a balance</i></h3>
 							
 						</header>
-					</div>
-					<div class="container 95%">
+
+
 						<div class="row">
 							<div class="6u 12u">
 								<div class="image fit">
@@ -388,8 +391,8 @@
 								</p> 
 							</div>
 						</div>
-					
-						<div class="container 95%">
+					</div>
+						<div class="container 95%" style="padding-top:2em">
 							<h4>Formal representation</h4>
 							<div class="row">
 								<div class="10u 12u$(xsmall)">
@@ -403,13 +406,13 @@
 									<p> VIR ontology can model up to 3rd level meanings; it's necessary to shape the cultural phenomenon and action parallelism </p>
 								</div>
 							</div>
-							<p>The chart shows how it’s possible to represent the <b>artwork content by means of CIDOC-CRM and VIR ontologies</b>. Thus, the physical artwork (crm:E22_Man-Made_Object, in the bottom of the picture) is composed of iconographical atoms. One of them identifies all the pictorial surface, whereas the other two individuates two specific portions of it by the relation crm:P46_is_composed_of, as the domain of the relation is crm:E18_Physical_Thing, superclass of vir:IC1_Iconographical_Atom. This subdivision allows to specify at the same time the entire representation and its attributes (on the left) and all the relevant representations that should be described more in detail. In order to clarify this dependence, the relation vir:K20_is_composed_of relates the whole representation to istances representing specific parts contained in it. </p>
+							<p>The chart shows how it’s possible to represent the <b>artwork content by means of CIDOC-CRM and VIR ontologies</b>. Thus, the physical artwork (<i>crm:E22_Man-Made_Object</i>, in the bottom of the picture) is composed of iconographical atoms. One of them identifies all the pictorial surface, whereas the other two individuates two specific portions of it by the relation <i>crm:P46_is_composed_of</i>, as the domain of the relation is <i>crm:E18_Physical_Thing</i>, superclass of <i>vir:IC1_Iconographical_Atom</i>. This subdivision allows to specify at the same time the entire representation and its attributes (on the left) and all the relevant representations that should be described more in detail. In order to clarify this dependence, the relation <i>vir:K20_is_composed_of</i> relates the whole representation to istances representing specific parts contained in it. </p>
 							<p>As specified before, Vermeer’s painting presents two subjects at the same level. This is described by means of relating to the same vir:IC1_Iconographical_Atom labelled “woman” two individuals of vir:IC9_representation, one representing the woman holding a balance, the other representing the personification of Divine Justice; Van Straten will be specified as the author of the last identification. The two representations are linked by the relation vir:K23_connote. The same problem, for which we adopted the same solution, is present in Lotto's <a href="#second_artwork"><i>Venus and Cupid</i></a>, since the putto impersonating Cupid, identified by means of his arch and quiver, is at the same time acting as a puer mingens, a putto who pees in the sign of auspicious wish of fertility. 
 							</p>
-							<p>The <b>actions parallelism </b>considered above is expressed by means of a relation between two individuals of crm:E5_Event, linked to the representation to which they belong by crm:P138_represents. It’s necessary to model a new relation, since the existing crm:P67_refers_to has as domain crm:E89_Propositional_object.</p>
-								<p>This solution is further applied in other following case studies in order to express other actions: the act of peeing made by the iconography of the puer mingens in Lotto’s <a href="#second_artwork"><i>Venus and Cupid</i></a> and in the <a href="#sixth_artwork"><i>Annunciation</i></a> in Wurzburg, in which God blows in a tube inserted in Mary’s ear to fulfil the Immaculate Conception through the holy words. Each of these actions is a symbol of another event; this relation is expressed by a icon:refersTo hypothetical property linking the depicted event to the symbolic one.  
+							<p>The <b>actions parallelism </b>considered above is expressed by means of a relation between two individuals of <i>crm:E5_Event</i>, linked to the representation to which they belong by <i>crm:P138_represents</i>. It’s necessary to model a new relation, namely <i>icon:symbolicallyRefersTo</i>,  since the existing <i>crm:P67_refers_to</i> has as domain <i>crm:E89_Propositional_Object</i>. Furthermore, the new relation indicates that the link is symbolic.</p>
+								<p>This solution is further applied in other following case studies in order to express other actions: the act of peeing made by the iconography of the puer mingens in Lotto’s <a href="#second_artwork"><i>Venus and Cupid</i></a> and in the <a href="#sixth_artwork"><i>Annunciation</i></a> in Wurzburg, in which God blows in a tube inserted in Mary’s ear to fulfill the Immaculate Conception through the holy words. Each of these actions is a symbol of another event; this relation is expressed by a icon:refersTo hypothetical property linking the depicted event to the symbolic one.  
 							</p>
-							<p>In addition, the contemporary context of production of the painting (crm:E12_Production) can be properly described by CIDOC-CRM classes and relations. A new class, <b>icon:CulturalPhenomenon</b>, has been modelled as subclass of crm:E4_Period, as it’s one of the cultural traits that can contribute to characterize  certain cultural phenomena, expressed by crm:E4_Period, as the Dutch Golden Age is.</p>
+							<p>In addition, the contemporary context of production of the painting (crm:E12_Production) can be properly described by CIDOC-CRM classes and relations. A new class, <i>icon:CulturalPhenomenon</i>, has been modelled as subclass of crm:E4_Period, as it’s one of the cultural traits that can contribute to characterize  certain cultural phenomena, expressed by crm:E4_Period, as the Dutch Golden Age is.</p>
 
 
 							<div class="row">
@@ -422,53 +425,55 @@
 								<div    class="2u 12u$(xsmall)">
 									<h6> <i>Woman Holding a Balance</i> and <i>Allegory of Faith</i> formal representation </h6>
 									<p> Iconological recognition class can link the artwork to other ones involved in the same comprehension citing as evidence sources and image features which witness the intepretation </p>
-									<ul class="actions">	
-										<li><a href="#guide" class="button special">Legend</a></li>
-									</ul>
 									
 								</div>
 							</div>
 
-							<p>Finally, the iconological interpretation had been expressed by linking the two paintings taken into account (Vermeer’s woman holding a balance and Allegory of Faith) to the cultural phenomenon recognized by means of two instances of “iconological recognition”, an hypothetical model for a class that could represent iconological and iconographical interpretations not described by current ontologies. Since it’s on the basis of the recognition of the phenomenon in Allegory of Faith that its presence in the other painting it’s supposed, it’s considered worthwhile to express this dependence by means of the relation cito:obtainsBackgroundFrom. </p>
-							<p>This representation can be further used for deeper meaning inferences: both the representations present the same attribute (vir:IC10_Attribute “home interior”)  and the same level 3 concept (crm:E28_conceptual_object “catholic theme depicted in home interior”) cited as evidence of the two iconological recognition. Thus, it’s possible to infer that if a painting belonging to the Dutch Golden Age has both these instances annotated, the painting may be related to the cultural phenomenon individuated. </p>
+							<p>Finally, the iconological interpretation had been expressed by linking the two paintings taken into account (Vermeer’s <i>Woman holding a balance</i> and <i>Allegory of Faith</i>) to the cultural phenomenon recognized by means of two instances of <i>icon:IconologicalRecognition</i>, an hypothetical model for a class that could represent iconological and iconographical interpretations not described by current ontologies. Since it’s on the basis of the recognition of the phenomenon in <i>Allegory of Faith</i> that its presence in the other painting it’s supposed, it’s considered worthwhile to express this dependence by means of the relation <i>cito:obtainsBackgroundFrom</i>. </p>
+							<p>This representation can be further used for <b>deeper meaning inferences</b>: both the representations present the same attribute (<i>vir:IC10_Attribute</i> “home interior”)  and the same level 3 concept (<i>crm:E28_Conceptual_Object</i> “catholic theme depicted in home interior”) cited as evidence of the two iconological recognition. Thus, it’s possible to infer that if a painting belonging to the Dutch Golden Age has both these instances annotated, the painting may be related to the cultural phenomenon individuated. </p>
 							</div>
 						</div>
-						<div class="container 95%">
+						<div class="container 95%" style="background-color:#dae9fa; padding:1em">
 							<h4>Competency questions</h4>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> CQ1 </h5>
-									<p><i>Which is the artwork iconological meaning? </i></p>
+									<h5> CQ1.1 </h5>
+									<p><i> Which is the cultural phenomenon characterizing the artwork? as identified via an iconological recognition</i></p>
 									<pre>
-prefix icon: < http://example.org/> 
-prefix icon_dataset: < http://icon_dataset.org/>
+prefix icon: <http://w3id.org/icon/>
+prefix data: <http://w3id.org/artmeaning/> 
 
-SELECT ?phenomenon 
-WHERE { 
-icon_dataset:vermeer-woman-holding-balance icon:documentOf ?phenomenon . 
-?phenomenon a icon:CulturalPhenomenon . }
+
+SELECT ?phenomenon ?label
+WHERE {
+	data:vermeer-woman-holding-balance icon:documentOf ?phenomenon ;
+	?phenomenon a icon:CulturalPhenomenon ; rdfs:label ?label . 
+}
+
 									</pre>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?phenomenon</th>
+										<th>?phenomenon</th><th>?label</th>
 										<tr>
-											<td>Cultural phenomenon: catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
+											<td>data:flemish-catholic-worship-xvii-century</td>
+											<td>Catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
 										</tr>
 									</table>
 								</div>
 							</div>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> cq2 </h5>
+									<h5> cq1.2 </h5>
 									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
 									<pre>
 SELECT ?relation 
 WHERE {
-icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing-souls-last-judgement
+   data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
 }
+
 
 									</pre>
 								</div>
@@ -485,13 +490,16 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 							</div>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> cq3 </h5>
-									<p><i>What is the relation between the artwork and the contemporary phenomenon of catholicism prohibition?</i></p>
+									<h5> cq1.3 </h5>
+									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
 									<pre>
-SELECT ?relation WHERE {
-icon_dataset:vermeer-woman-balance ?relation icon_dataset:catholicism-prohibition
+SELECT ?evidence ?label
+WHERE {
+    data:vermeer-icon-rec a icon:IconologicalRecognition ;
+icon:assignsTo data:vermeer-woman-holding-balance ;
+cito:citesAsEvidence ?evidence.
+?evidence rdfs:label ?label.
 }
-
 
 									</pre>
 								</div>
@@ -499,41 +507,21 @@ icon_dataset:vermeer-woman-balance ?relation icon_dataset:catholicism-prohibitio
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?relation</th>
+										<th>?evidence</th><th>?label</th>
 										<tr>
-											<td>icon:isDocumentOf </td>
+											<td>data:catholic-theme-attribute </td>
+											<td>catholic theme</td>
+										</tr>
+										<tr>
+											<td>data:home-interior-attribute </td>
+											<td>home interior</td>
 										</tr>
 									</table>
 								</div>
 							</div>
-							<div class="row">
-								<div class="6u 12u$(xsmall)">
-									<h5> cq4 </h5>
-									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
-									<pre>
-SELECT ?evidence WHERE {
-icon_dataset:vermeer-iconol-rec cito:citesAsEvidence ?evidence
-}
 
-
-									</pre>
-								</div>
-								<!-- inserisci info di stile per le div di descrizione immagine -->
-								<div   class="6u 12u$(xsmall)">
-									<h5> result </h5>
-									<table>
-										<th>?evidence</th>
-										<tr>
-											<td>icon_dataset:catholic-theme-attribute </td>
-										</tr>
-										<tr>
-											<td>icon_dataset:home-interior-attribute </td>
-										</tr>
-									</table>
-								</div>
-							</div>
 						</div>
-						<div class="container 95%">
+						<div class="container 95%" style="padding-top:2em">
 							<h4>References</h4>
 							<p>Liedtke, W. (2010). <i>Johannes Vermeer | Allegory of the Catholic Faith </i>[WWW Document]. The Metropolitan Museum of Art. URL <a href="https://www.metmuseum.org/art/collection/search/437877">https://www.metmuseum.org/art/collection/search/437877</a> (accessed 3.18.21).</p>
 							<p>Van Straten, R. (1994). <i>Introduction to iconography: Symbols, Allusions and Meaning in the Visual Arts</i>. New York: Taylor & Francis. </p>
@@ -549,14 +537,13 @@ icon_dataset:vermeer-iconol-rec cito:citesAsEvidence ?evidence
 				</section>
 
 				<section id="second_artwork" class="wrapper style1">
-					<div class="container 95%">
+					<div class="container 150%" style="background-color:#95a8ce; padding:1em">
 						
 						<header class="major">
 							<h3>Lorenzo Lotto <i>Venus and Cupid</i></h3>
 							
 						</header>
-					</div>
-					<div class="container 95%">
+
 						<div class="row">
 							<div class="6u 12u">
 								<div class="image fit">
@@ -574,6 +561,7 @@ icon_dataset:vermeer-iconol-rec cito:citesAsEvidence ?evidence
 								</p> 
 							</div>
 						</div>
+					</div>
 						<div class="container 95%">
 							<header class="major">
 								<h4>Formal representation</h4>
