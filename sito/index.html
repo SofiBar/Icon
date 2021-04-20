@@ -404,32 +404,18 @@
 								<div   class="2u 12u$(xsmall)">
 									<h6> Formal representation of <i>Woman Holding a Balance</i> </h6>
 									<p> VIR ontology can model up to 3rd level meanings; it's necessary to shape the cultural phenomenon and action parallelism </p>
+									<p> Iconological recognition class can link the artwork to other ones involved in the same comprehension citing as evidence sources and image features which witness the intepretation </p>
 								</div>
 							</div>
 							<p>The chart shows how it’s possible to represent the <b>artwork content by means of CIDOC-CRM and VIR ontologies</b>. Thus, the physical artwork (<i>crm:E22_Man-Made_Object</i>, in the bottom of the picture) is composed of iconographical atoms. One of them identifies all the pictorial surface, whereas the other two individuates two specific portions of it by the relation <i>crm:P46_is_composed_of</i>, as the domain of the relation is <i>crm:E18_Physical_Thing</i>, superclass of <i>vir:IC1_Iconographical_Atom</i>. This subdivision allows to specify at the same time the entire representation and its attributes (on the left) and all the relevant representations that should be described more in detail. In order to clarify this dependence, the relation <i>vir:K20_is_composed_of</i> relates the whole representation to istances representing specific parts contained in it. </p>
-							<p>As specified before, Vermeer’s painting presents two subjects at the same level. This is described by means of relating to the same vir:IC1_Iconographical_Atom labelled “woman” two individuals of vir:IC9_representation, one representing the woman holding a balance, the other representing the personification of Divine Justice; Van Straten will be specified as the author of the last identification. The two representations are linked by the relation vir:K23_connote. The same problem, for which we adopted the same solution, is present in Lotto's <a href="#second_artwork"><i>Venus and Cupid</i></a>, since the putto impersonating Cupid, identified by means of his arch and quiver, is at the same time acting as a puer mingens, a putto who pees in the sign of auspicious wish of fertility. 
+							<p>As specified before, Vermeer’s painting presents <b>two subjects at the same level</b>. This is described by means of relating to the same vir:IC1_Iconographical_Atom labelled “woman” two individuals of vir:IC9_representation, one representing the woman holding a balance, the other representing the personification of Divine Justice; Van Straten will be specified as the author of the last identification. The two representations are linked by the relation vir:K23_connote. The same problem, for which we adopted the same solution, is present in Lotto's <a href="#second_artwork"><i>Venus and Cupid</i></a>, since the putto impersonating Cupid, identified by means of his arch and quiver, is at the same time acting as a puer mingens, a putto who pees in the sign of auspicious wish of fertility. 
 							</p>
 							<p>The <b>actions parallelism </b>considered above is expressed by means of a relation between two individuals of <i>crm:E5_Event</i>, linked to the representation to which they belong by <i>crm:P138_represents</i>. It’s necessary to model a new relation, namely <i>icon:symbolicallyRefersTo</i>,  since the existing <i>crm:P67_refers_to</i> has as domain <i>crm:E89_Propositional_Object</i>. Furthermore, the new relation indicates that the link is symbolic.</p>
 								<p>This solution is further applied in other following case studies in order to express other actions: the act of peeing made by the iconography of the puer mingens in Lotto’s <a href="#second_artwork"><i>Venus and Cupid</i></a> and in the <a href="#sixth_artwork"><i>Annunciation</i></a> in Wurzburg, in which God blows in a tube inserted in Mary’s ear to fulfill the Immaculate Conception through the holy words. Each of these actions is a symbol of another event; this relation is expressed by a icon:refersTo hypothetical property linking the depicted event to the symbolic one.  
 							</p>
 							<p>In addition, the contemporary context of production of the painting (crm:E12_Production) can be properly described by CIDOC-CRM classes and relations. A new class, <i>icon:CulturalPhenomenon</i>, has been modelled as subclass of crm:E4_Period, as it’s one of the cultural traits that can contribute to characterize  certain cultural phenomena, expressed by crm:E4_Period, as the Dutch Golden Age is.</p>
 
-
-							<div class="row">
-								<div class="10u 12u$(xsmall)">
-									<div class="image fit">
-										<img src="images\article_schemes\Slide7.jpg" alt="" />
-									</div>
-								</div>
-								<!-- inserisci info di stile per le div di descrizione immagine -->
-								<div    class="2u 12u$(xsmall)">
-									<h6> <i>Woman Holding a Balance</i> and <i>Allegory of Faith</i> formal representation </h6>
-									<p> Iconological recognition class can link the artwork to other ones involved in the same comprehension citing as evidence sources and image features which witness the intepretation </p>
-									
-								</div>
-							</div>
-
-							<p>Finally, the iconological interpretation had been expressed by linking the two paintings taken into account (Vermeer’s <i>Woman holding a balance</i> and <i>Allegory of Faith</i>) to the cultural phenomenon recognized by means of two instances of <i>icon:IconologicalRecognition</i>, an hypothetical model for a class that could represent iconological and iconographical interpretations not described by current ontologies. Since it’s on the basis of the recognition of the phenomenon in <i>Allegory of Faith</i> that its presence in the other painting it’s supposed, it’s considered worthwhile to express this dependence by means of the relation <i>cito:obtainsBackgroundFrom</i>. </p>
+							<p>Finally, the <b>iconological interpretation</b> had been expressed by linking the two paintings taken into account (Vermeer’s <i>Woman holding a balance</i> and <i>Allegory of Faith</i>) to the cultural phenomenon recognized by means of two instances of <i>icon:IconologicalRecognition</i>, an hypothetical model for a class that could represent iconological and iconographical interpretations not described by current ontologies. Since it’s on the basis of the recognition of the phenomenon in <i>Allegory of Faith</i> that its presence in the other painting it’s supposed, it’s considered worthwhile to express this dependence by means of the relation <i>cito:obtainsBackgroundFrom</i>. </p>
 							<p>This representation can be further used for <b>deeper meaning inferences</b>: both the representations present the same attribute (<i>vir:IC10_Attribute</i> “home interior”)  and the same level 3 concept (<i>crm:E28_Conceptual_Object</i> “catholic theme depicted in home interior”) cited as evidence of the two iconological recognition. Thus, it’s possible to infer that if a painting belonging to the Dutch Golden Age has both these instances annotated, the painting may be related to the cultural phenomenon individuated. </p>
 							</div>
 						</div>
@@ -440,8 +426,9 @@
 									<h5> CQ1.1 </h5>
 									<p><i> Which is the cultural phenomenon characterizing the artwork? as identified via an iconological recognition</i></p>
 									<pre>
-prefix icon: <http://w3id.org/icon/>
-prefix data: <http://w3id.org/artmeaning/> 
+										<code>
+prefix icon: &lt;http://w3id.org/icon/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt; 
 
 
 SELECT ?phenomenon ?label
@@ -449,7 +436,7 @@ WHERE {
 	data:vermeer-woman-holding-balance icon:documentOf ?phenomenon ;
 	?phenomenon a icon:CulturalPhenomenon ; rdfs:label ?label . 
 }
-
+										</code>
 									</pre>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
@@ -536,7 +523,7 @@ cito:citesAsEvidence ?evidence.
 					
 				</section>
 
-				<section id="second_artwork" class="wrapper style1">
+				<section id="second_artwork" class="wrapper style2">
 					<div class="container 150%" style="background-color:#95a8ce; padding:1em">
 						
 						<header class="major">
@@ -829,10 +816,10 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 							<div class="6u 12u">
 							
 								<h4>Artwork description</h4>
-								<p>the first case study taken into account in this section affords the phenomenon described by Panofsky, who recognises that during Middle Ages can be found representations in which classical themes are “expressed by nonclassical figures in a nonclassical setting” (Panofsky, p. 43); one reason is in the different tradition - textual for the contents, visual for motifs - with which classical themes were transmitted from late antiquity onward. The second tradition will be examined in section 4. Thus, the cited textual copy tradition, being not influenced by originary visual motifs, often includes manuscripts in which the classical content is illuminated through the lenses of fully medieval representational conventions and imaginary. Besides that, the scholar claims as a further cause of this change the reached maturity of a new artistic style. </p>
+								<p>The first case study taken into account in this section affords the phenomenon described by Panofsky, who recognises that during Middle Ages can be found representations in which classical themes are “expressed by nonclassical figures in a nonclassical setting” (Panofsky, p. 43); one reason is in the different tradition - textual for the contents, visual for motifs - with which classical themes were transmitted from late antiquity onward. The second tradition will be examined in section 4. Thus, the cited textual copy tradition, being not influenced by originary visual motifs, often includes manuscripts in which the classical content is illuminated through the lenses of fully medieval representational conventions and imaginary. Besides that, the scholar claims as a further cause of this change the reached maturity of a new artistic style. </p>
 								<p>These features can be clearly identified in the XV miniature taken into account (Fig. 4): the Rape of Proserpina event is depicted as a courteous scene. Hence, Proserpina becomes a lady picking flowers in a meadow who tends her hand towards a knight sticking out of a chariot, accompanied by a figure with three canine heads wearing medieval armour. The characters can be identified only by their written names and the theme is not understandable except by the text written in the illuminated manuscript, as in the scene no trait suggests a kidnapping. 
 								</p> 
-								<p>Whereas in this cases level 3 meanings are not considered, we focus on how to model representation features and the link with the illuminated text, finally relating the artworks involved to the cultural phenomenon (l. 4) individuated by Panofsky. </p>
+								<p>In this case study we focus on how to model representation features and the link with the illuminated text, finally relating the artworks involved to the cultural phenomenon (l. 4) individuated by Panofsky. </p>
 								
 							</div>
 						</div>
@@ -850,17 +837,22 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 									<p> Current ontologies and controlled vucabularies can shape the attributes and basic motifs changes, but a way to express the fact that these differences are meaningful doesn't currently exist</p>
 							</div>
 							
-							<p>In order to relate attributes to the figure they properly identify, every character is expressed by an instance of vir:IC9_representation to which attributes are linked (charts 8-10). The difference in the representational motifs is highlighted by associating to them the closest term of a controlled vocabulary. In this way, relevant aspects can be annotated, such as that Pluto is characterized by armour and a chariot in Fig. 4 and by the seminude figure in Fig. 5, in addition to the difference of attributes related to his figure. This is indeed the only way found in which the stylistic difference - fundamental for the iconological interpretation phase - can be registered. Hence, further studies can be done in order to figure out how to model a difference between two or more objects when this difference is meaningful.   
+							<p>In order to relate attributes to the figure they properly identify, every character is expressed by an instance of vir:IC9_representation to which attributes are linked. The difference in the representational motifs is highlighted by associating to them the closest term of a controlled vocabulary. In this way, relevant aspects can be annotated, such as that Pluto is characterized by armour and a chariot in Fig. 4 and by the seminude figure in Fig. 5, in addition to the difference of attributes related to his figure. The concept of medieval style is further indicated by means of a <i>crm:E55_Type</i> “medieval artistic style” related to the representation. Another instance of the same class specifies the more general type “style”.     
 							</p>
-							<p>Furthermore, a relation able to specify that an existing difference between two artworks can support the iconological recognition linking the artworks taken into account to the cultural phenomenon discovered doesn’t currently exist(l. 4).
+							<p>Hence, further studies can be done in order to figure out how to model a difference between two or more objects when this difference is meaningful. Indeed, a relation able to specify that an existing difference between two artworks can support the iconological recognition that relates to them the cultural phenomenon discovered doesn’t currently exist (l. 4). We expressed the difference by modelling in detail the peculiarities of the two representations (vir:IC10_Attribute), which are cited as evidence of the cultural phenomenon recognition. 
 							</p>
 							<p>Finally, since the tradition taken into account concerns texts, one important aspect is that, usually, representations depicting it are miniatures, thus artworks narrowly related to the text they represent. This dependence can be expressed by means of an instance of crm:P128_carries relating the object representing the manuscript to crm:E73_information_object, which individuates the specific textual passage illuminated. The same passage is the source of the vir:IC12_visual_recognition. </p>
 							</div>
 						</div>
-						<ul class="actions">
-							<li><a href="#three" class="button special">The case studies</a></li>
-							<li><a href="#typology2" class="button">Typology overwiew</a></li>
-						</ul>	
+						<div class="container 95%">
+							<h4>References</h4>
+							<p>Panofsky, E. (1962). <i>Studies in iconology: Humanistic themes in the art of the Renaissance</i>. New York: Harper & Row.</p>
+
+							<ul class="actions">
+								<li><a href="#three" class="button special">The case studies</a></li>
+								<li><a href="#typology2" class="button">Typology overwiew</a></li>
+							</ul>
+						</div>	
 					</div>
 					
 				</section>
@@ -885,10 +877,10 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 							<div class="6u 12u">
 							
 								<h4>Artwork description</h4>
-								<p>Similar characteristics can be found also in the second case study. Laocoon and his sons’ episode (Verg. Aen. 2, 199-233) is represented in an illuminated medieval manuscript (Fig. 6). The scene is indeed represented in a very different way from the classical style that can be seen in the Vatican statue (Fig. 7):  “the Laocoon who makes the sacrifice becomes a wild and bald old priest who attacks the little bull with what should be an ax, while the two little boys float around at the bottom of the picture and the sea snakes appear briskly in a pool of water” (Panofsky, Saxl, 1933, p. 253). </p>
-								<p>
+								<p><i>Laocoon and his sons</i> episode (originally taken from Vergil’s <i>Aeneid</i>. 2, 199-233) is another example belonging to the tradition recognized by Panofsky and Saxl of classical themes depicted in a fully medieval style, deprived of their classical motifs. It is represented in a XIV century illuminated manuscript carrying the Aeneid text (Biblioteca Apostolica Vaticana, <a href="https://digi.vatlib.it/view/MSS_Vat.lat.2761" target="_blank">ms vat. 2761, folio 15r</a>).  </p>
+								<p>The scene is very different from the classical style of the Vatican statue (Fig. 6), in which characters are seminude figures depicted while they are entangled in sea snakes. It focuses on their desperation, and on the beauty of the proportioned human body. It is worth noting that the <b>stylistic difference</b> between the scene depicted in the manuscript (showing medieval motifs) and the classic statue is evidence of the cultural phenomenon wherein artists revisit classic motifs according to the contemporary style. 
 								</p> 
-								<p>Whereas in this cases level 3 meanings are not considered, we focus on how to model representation features and the link with the illuminated text, finally relating the artworks involved to the cultural phenomenon (l. 4) individuated by Panofsky. </p>
+								<p>The two representations differ not only for the style, since they also present <b>different attributes and details</b>. The miniature shows an ax and the presence of water, whereas the statue presents just the protagonists of the episode and the sea snakes. Furthermore, the medieval clothes is another peculiar characteristic of the illumination in contrast with the seminude classical figures that’s interesting to annotate. </p>
 								
 							</div>
 						</div>
@@ -897,37 +889,127 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 							<div class="row">
 								<div class="10u 12u$(xsmall)">
 									<div class="image fit">
-										<img src="images\article_schemes\Slide21.jpg" alt="" />
+										<img src="images\article_schemes_new\Laocoon-5.svg" alt="" />
 									</div>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
 								<div id="imageDescr" class="2u 12u$(xsmall)">
-									<h6> Chart 6 </h6>
-									<p> Classical statue description</p>
-							</div>
-							<div class="row">
-								<div class="10u 12u$(xsmall)">
-									<div class="image fit">
-										<img src="images\article_schemes\Slide20.jpg" alt="" />
-									</div>
-								</div>
-								<!-- inserisci info di stile per le div di descrizione immagine -->
-								<div id="imageDescr" class="2u 12u$(xsmall)">
-									<h6> Chart 6 </h6>
-									<p> XV c. miniature description and intepretation</p>
+									<h6> <i>Laocoon and his Sons</i> illunimation (left side) and classical statue (right side) representation </h6>
+									<p> The stylistic difference is annotated by means of crm:E5_Type along with specific attributes. These attributes witnessing the style difference are cited as the evidence supporting the recognition of the cultural phenomenon</p>
 							</div>
 							
-							<p>Albeit this is not necessary for the raper of Proserpina case study since Bernini's statue can be a witness of the individuated phenomenon related to the Baroque period, it becomes necessary for considerations made for Laocoon example, where the Vatican statue witnesses the style in which classical themes were represented in the classical period to which the theme belongs. More considerations about the topic will be treated in example 3 of typology 3. One possible solution adopted in this study consists of using the cito:citesAsEvidence relation citing the classical statue as a source of the iconological recognition, as it witnesses the style and motifs difference.   
+							<p>In the case study, the two artworks are individuated by an instance of <i>crm:E22_Man-made_Object</i>, related to an iconographical Atom (<i>vir:IC1</i>)  identifying the overall representation (<i>vir:IC9</i>). In the case of the illumination, the identification is made on the base of the Aeneid text carried by the manuscript (<i>vir:IC12, vir:K10_on_the_base_of, crm:E73_Information_object</i>). These classes identifying the overall scene depicted are composed of more iconographical atoms and representations describing specific features of the image.  
 							</p>
-							<p>
+							<p>Characters (<i>vir:IC9</i>) are linked to their attributes, which show significant variants across centuries. The class <i>vir:IC10_Attribute</i> aims at describing relevant aspects of a representation that support its identification. Nevertheless, it is not possible to distinguish a relevant feature from an identifying one. We define <i>icon:hasIdentifyingAttribute</i> to relate only those attributes that have a key role in the identification of the subject to the representation at hand. We use here <i>vir:K17</i> to annotate attributes that characterize the two representations as visual evidence (<i>cito:citesAsEvidence</i>) of the iconological interpretation (lev. 4) despite not contributing to the recognition of subjects, namely: the presence of water, ox, axe and medieval clothes in the illumination, and the pathos and seminude figures in the Vatican sculpture.
 							</p>
 							<p></p>
 							</div>
 						</div>
-						<ul class="actions">
-							<li><a href="#three" class="button special">The case studies</a></li>
-							<li><a href="#typology2" class="button">Typology overwiew</a></li>
-						</ul>
+						<div class="container 95%">
+							<h4>Competency questions</h4>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> CQ5.1 </h5>
+									<p><i> What are the different attributes of the subject in the two representations?</i></p>
+									<pre>
+										<code>
+prefix icon: &lt;http://w3id.org/icon/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt; 
+
+
+SELECT DISTINCT ?attribute ?artwork
+WHERE {
+	{data:laocoon-ms2761-f15r rdfs:label ?artwork; 
+		vir:K1_denotes ?representation} 
+	UNION {data:laocoon-vatican-statue rdfs:label ?artwork; 
+			vir:K1_denotes ?representation}
+?representation vir:K20_is_composed_of ?repr. 
+	?repr vir:K17_has_attribute ?attributeURI. 
+	?attributeURI rdfs:label ?attribute.
+}
+
+										</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?phenomenon</th><th>?label</th>
+										<tr>
+											<td>data:flemish-catholic-worship-xvii-century</td>
+											<td>Catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq1.2 </h5>
+									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
+									<pre>
+SELECT ?relation 
+WHERE {
+   data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
+}
+
+
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?relation</th>
+										<tr>
+											<td>icon:symbolicallyRefersTo </td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq1.3 </h5>
+									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
+									<pre>
+SELECT ?evidence ?label
+WHERE {
+    data:vermeer-icon-rec a icon:IconologicalRecognition ;
+icon:assignsTo data:vermeer-woman-holding-balance ;
+cito:citesAsEvidence ?evidence.
+?evidence rdfs:label ?label.
+}
+
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?evidence</th><th>?label</th>
+										<tr>
+											<td>data:catholic-theme-attribute </td>
+											<td>catholic theme</td>
+										</tr>
+										<tr>
+											<td>data:home-interior-attribute </td>
+											<td>home interior</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+
+						</div>
+						<div class="container 95%">
+							<h4>References</h4>
+							<p>Panofsky, E. (1962). <i>Studies in iconology: Humanistic themes in the art of the Renaissance</i>. New York: Harper & Row.</p>
+							<p>Panofsky, E., Saxl, F. (1933). Classical Mythology in Medieval Art. <i>Metropolitan Museum Studies</i>, 4(2):228-280. </p>
+							
+							<ul class="actions">
+								<li><a href="#three" class="button special">The case studies</a></li>
+								<li><a href="#typology2" class="button">Typology overwiew</a></li>
+							</ul>
+						</div>	
 					</div>
 					
 				</section>
