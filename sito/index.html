@@ -912,9 +912,11 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 									<h5> CQ5.1 </h5>
 									<p><i> What are the different attributes of the subject in the two representations?</i></p>
 									<pre>
-										<code>
+<code>
 prefix icon: &lt;http://w3id.org/icon/&gt;
 prefix data: &lt;http://w3id.org/artmeaning/&gt; 
+prefix aat:	&lt;http://vocab.getty.edu/page/aat&gt; 
+
 
 
 SELECT DISTINCT ?attribute ?artwork
@@ -927,8 +929,68 @@ WHERE {
 	?repr vir:K17_has_attribute ?attributeURI. 
 	?attributeURI rdfs:label ?attribute.
 }
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?attribute</th><th>?artwork</th>
+										<tr>
+											
+											<td>ox</td>
+											<td>Laocoon and his sons on folio 15v of ms vat. lat. 2761</td> 
+										</tr>
+										<tr>
+											<td>axe</td>
+											<td>Laocoon and his sons on folio 15v of ms vat. lat. 2761</td>
 
-										</code>
+										</tr>
+										<tr>
+											<td>medieval clothes</td>
+											<td>Laocoon and his sons on folio 15v of ms vat. lat. 2761</td>
+										</tr>
+										<tr>
+											<td>sea water</td>
+											<td>Laocoon and his sons on folio 15v of ms vat. lat. 2761</td>
+										</tr>
+										<tr>
+											<td>sea snakes</td>
+											<td>Laocoon and his sons on folio 15v of ms vat. lat. 2761</td>
+										</tr>
+										<tr>
+											<td>despair </td>
+											<td>Laocoon and his sons, Vatican statue</td>
+										</tr>
+										<tr>
+											<td>pathos</td>
+											<td>Laocoon and his sons, Vatican statue</td>
+										</tr>
+										<tr>
+											<td>seminude</td>
+											<td>Laocoon and his sons, Vatican statue</td>
+										</tr>
+										<tr>
+											<td>sea snakes</td>
+											<td>Laocoon and his sons, Vatican statue</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq5.2 </h5>
+									<p><i>What is the cultural phenomenon characterising the artists’ approach?</i></p>
+									<pre>
+<code>
+SELECT ?phenomenon ?label
+WHERE {
+	data:laocoon-ms2761-f15r-production crm:P10_falls_within  ?period.
+	?period crm:P9_consists_of ?phenomenon. 
+	?phenomenon rdfs:label ?label. 
+}
+</code>
 									</pre>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
@@ -937,69 +999,85 @@ WHERE {
 									<table>
 										<th>?phenomenon</th><th>?label</th>
 										<tr>
-											<td>data:flemish-catholic-worship-xvii-century</td>
-											<td>Catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
+											<td>data:cult-phenom-classical-content-contemp-motif</td><td>Representation of classical content with contemporary formal motifs</td>
 										</tr>
 									</table>
 								</div>
 							</div>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> cq1.2 </h5>
-									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
+									<h5> cq5.3 </h5>
+									<p><i>What evidence does support the cultural phenomenon recognized?</i></p>
 									<pre>
-SELECT ?relation 
+<code>
+SELECT DISTINCT ?evidence
 WHERE {
-   data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
+	?ic_rec icon:assigned data:cult-phenom-classical-content-contemp-motif; 
+		icon:assignsTo ?artwork;
+		cito:citesAsEvidence ?evidenceURI.
+	?evidenceURI rdfs:label ?evidence.
 }
-
-
+</code>
 									</pre>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?relation</th>
+										<th>?evidence</th>
 										<tr>
-											<td>icon:symbolicallyRefersTo </td>
+											<td>ox</td>
+										</tr>
+										<tr>
+											<td>axe</td>
+										</tr>
+										<tr>
+											<td>medieval clothes</td>
+										</tr>
+										<tr>
+											<td>sea water</td>
+										</tr>
+										<tr>
+											<td>despair</td>
+										</tr>
+										<tr>
+											<td>pathos</td>
+										</tr>
+										<tr>
+											<td>seminude</td>
 										</tr>
 									</table>
 								</div>
 							</div>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> cq1.3 </h5>
-									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
+									<h5> cq5.4 </h5>
+									<p><i>What’s the style characterizing the Laocoon miniature representation?</i></p>
 									<pre>
-SELECT ?evidence ?label
+<code>
+SELECT ?style ?label
 WHERE {
-    data:vermeer-icon-rec a icon:IconologicalRecognition ;
-icon:assignsTo data:vermeer-woman-holding-balance ;
-cito:citesAsEvidence ?evidence.
-?evidence rdfs:label ?label.
+	data:laocoon-ms2761-f15r-repr crm:P2_has_type  ?style.
+	?style crm:p2_has_type aat:300015646; 
+		rdfs:label ?label. 
 }
-
+</code>
 									</pre>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?evidence</th><th>?label</th>
+										<th>?style</th><th>?label</th>
 										<tr>
-											<td>data:catholic-theme-attribute </td>
-											<td>catholic theme</td>
-										</tr>
-										<tr>
-											<td>data:home-interior-attribute </td>
-											<td>home interior</td>
+											<td>aat:300111907</td><td>medieval artistic style</td>
 										</tr>
 									</table>
 								</div>
 							</div>
 
 						</div>
+
 						<div class="container 95%">
 							<h4>References</h4>
 							<p>Panofsky, E. (1962). <i>Studies in iconology: Humanistic themes in the art of the Renaissance</i>. New York: Harper & Row.</p>
@@ -1180,13 +1258,11 @@ cito:citesAsEvidence ?evidence.
 							<div class="6u 12u">
 							
 								<h4>Artwork description</h4>
-								<p>Irving Lavin (1993) studied the iconography of the Neptune fountain in Bologna (1563-66) relating it to the urban renewal project designed by the papal vicelegate Pier Donato Cesi (1522-1586), in a period in which the city was governed by the Church. According to the study of documents concerning the urban plan, the aim was to affirm the positivity of the papal domain over the city (l. 3), though remembering that opponents would be punished (Lavin, 1992, p. 28). Neptune was one of the three statues planned during this occasion. </p>
-								<p>Its iconography is precisely taken from Raimondi’s print decorating the first book of Virgil’s Aeneid commissioned by pope Julius II (Fig. 12). It depicts the Quos Ego iconography: it’s the scene in which Neptune intervenes to calm the storm caused by Aeolus at the request of Juno, claiming his authority over the marine kingdom through an unfinished threat toward the transgressor (Verg, Aen, I, v. 135). 
+								<p>Irving Lavin (1993) studied the iconography of the Neptune fountain in Bologna (1563-66) relating it to the urban renewal project designed by the papal vicelegate Pier Donato Cesi (1522-1586), in a period in which the city was governed by the Church. According to the study of documents concerning the urban plan, the aim was to affirm the positivity of the papal domain over the city (l. 3), though remembering that opponents would be punished (Lavin, 1992, p. 28). Neptune (Fig. 11) was one of the three statues planned during this occasion. </p>
+								<p>The iconography of the statue is influenced by Marcantonio Raimondi’s print decorating the first book of Virgil’s <i>Aeneid</i> commissioned by pope Julius II (Fig. 12). It depicts the <i>Quos Ego</i> iconography: it’s the scene in which Neptune intervenes to calm the storm caused by Aeolus at the request of Juno, claiming his authority over the marine kingdom through an unfinished threat toward the transgressor (Verg, <i>Aen</i>, I, v. 135). 
 								</p> 
-								<p>A third level political meaning is already present in Virgil’s text: in this passage, Neptune is depicted as a worthy nobleman who placates a popular tumult with his words, alluding to the Ottavian’s Pax Augusta. In addition to that, Aeneis was considered the symbol of the universal power of the Church, since it’s the roman empire - whose birth is celebrated by the text - that allowed the flourishing of the Christian religion in the known world. Thus, as the iconography had probably been already interpreted by pope Julius II as a symbol of the Christian ruler, it’s clearly been used with this symbolic meaning by Cesi, effective ruler of Bologna. Cesi’s words about the statue confirm this interpretation:  he “compares the action to that of the ruler who would liberate his subjects from all fear of disturbances'' (Lavin, 1993, p. 80). An additional meaning associated with Neptune’s character is that he was considered the personification of reason and intelligence during the Middle Ages. </p>
+								<p>A third level political meaning is already present in Virgil’s text: in this passage, Neptune is depicted as a worthy nobleman who placates a popular tumult with his words, alluding to the Ottavian’s <i>Pax Augusta</i>. In addition to that, Aeneis was considered the symbol of the universal power of the Church, since it’s the roman empire - whose birth is celebrated by the text - that allowed the flourishing of the Christian religion in the known world. Thus, as the iconography had probably been already interpreted by pope Julius II as a symbol of the Christian ruler, it’s clearly been used with this symbolic meaning by Cesi, effective ruler of Bologna. Cesi’s words about the statue confirm this interpretation:  he “compares the action to that of the ruler who would liberate his subjects from all fear of disturbances'' (Lavin, 1993, p. 80).</p>
 								<p>Furthermore, the basis of the fountain presents significant symbols (l. 3) of love (putti hugging dolphins), persuasion (dolphins from whose mouth gushes water, mermaids), references to pope Pius IV to whom the fountain is dedicated (metaphor of Pius water reported on the commemorative medal of its realization) and to the Council of Trent (the word “trident” reminds of “tridentinum”). </p>
-								<p>Finally, a fourth level meaning could be seen by the interpretation of the iconographical study described, such as the habit of expressing political messages through meaningful symbols.
-								</p>
 							</div>
 						</div>
 						<div class="container 95%">
@@ -1194,34 +1270,24 @@ cito:citesAsEvidence ?evidence.
 							<div class="row">
 								<div class="10u 12u$(xsmall)">
 									<div class="image fit">
-										<img src="images\article_schemes\Slide29.jpg" alt="" />
+										<img src="images\article_schemes_new\Neptune-8.svg" alt="" />
 									</div>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
 								<div id="imageDescr" class="2u 12u$(xsmall)">
-									<h6> Chart 15 </h6>
+									<h6> Neptune fountain (left side) and Raimondi print (right side) formal representation </h6>
 									<p> ###</p>
 							</div>
 							
-							<p>Vocabularies allow describing all the l. 1 items (except the trident and the related Council of Trent), the quos Ego iconography (l. 2) and l. 3 symbolic concepts.   
+							<p>Vocabularies allow describing all the l. 1 items (except the trident and the related Council of Trent), the <i>Quos Ego</i> iconography (l. 2) and l. 3 symbolic concepts.   
 							</p>
-							<p>Since the fountain presents the Quos Ego iconography and other symbols, each of them is formally expressed by a vir:IC9_representation related to the corresponding vir:IC1_Iconographical_Atom (chart 15). VIR ontology can also fully describe the author of visual recognition, the concepts that the symbols are representing and related terms of vocabularies. Neptune as personification and the trident as attribute are then specified. 
+							<p>Since the fountain presents the <i>Quos Ego</i> iconography and other symbols, each of them is formally expressed by a <i>vir:IC9_representation</i> related to the corresponding <i>vir:IC1_Iconographical_Atom</i>. VIR ontology can also fully describe the author of visual recognition, the concepts that the symbols are representing and related terms of vocabularies. Neptune as personification and the trident as attribute are then specified. 
 							</p>
-							<p>Furthermore, the Quos Ego representation is related by crm:P107_show_features_of to the Raimondi’s representation. As the context of production is relevant, it has been expressed by CIDOC-CRM classes and relations. Moreover, in order to highlight the fact that the iconography had been referenced to highlight the role of the ruler, this has been annotated by pro:RoleInTime referred respectively to Neptune, pope Julius II and Pier Donato Cesi. </p>
+							<p>Furthermore, the Raimondi's Quos Ego representation is related by <i>vir:K4_is_visual_prototype_of</i> to the Neptune fountain representation and both are recognized by a visual recognition (<i>vir:IC12</i>) citing as source (<i>vir:K10_on_the_base_of</i>) the Aeneid specific passage, to which the meaning of "ruler appeasing the revolt" is linked by <i>crm:P165_incorporates</i>. 
 
-							<div class="row">
-								<div class="10u 12u$(xsmall)">
-									<div class="image fit">
-										<img src="images\article_schemes\Slide30.jpg" alt="" />
-									</div>
-								</div>
-								<!-- inserisci info di stile per le div di descrizione immagine -->
-								<div id="imageDescr" class="2u 12u$(xsmall)">
-									<h6> Chart 16 </h6>
-									<p> ###</p>
-							</div>
+							<p>As the context of production is relevant, it has been expressed by CIDOC-CRM classes and relations. Moreover, in order to highlight the fact that the iconography had been referenced to highlight the role of the ruler, this has been annotated by pro:RoleInTime referred respectively to Neptune, pope Julius II and Pier Donato Cesi. </p>
 
-							<p>Since the aim is to express the fact that the Virgil’s scene has been referenced to express the same meaning, we figured out a way in which it’s possible to express it. New classes and properties should be outlined; thus, an iconological recognition instance associates to the Quos Ego iconography the concept of the ruler who quells the rioting, citing Aeneis as the source (chart 16). Then, on the basis of that, another iconological recognition associates to Quos Ego another meaning explicitly related to the bolognese context (“affirmation of papal power over the city of Bologna”). Albeit it’s a possible solution, it doesn’t fully describe the attribution of the meaning to the source. Therefore, it’s necessary to do further studies on how to represent a meaning expressed in a textual work that is remediated in visual artwork. Finally, this last instance can support the fourth level meaning interpretation by linking the artwork to the habit described above, though no existing class has been individuated to represent such a cultural phenomenon. </p>
+							<p>Since the aim is to express the fact that the Virgil’s scene has been referenced to express the same meaning, we figured out a way in which it’s possible to express it. New classes and properties should be outlined; thus, an iconological recognition instance associates to both the <i>Quos Ego</i> representations (Raimondi's print and Neptune fountain) the concept of the ruler who quells the rioting, already related to Aeneid, the source in which the political message first appears. Then, on the basis of that, another iconological recognition associates to the print representation another meaning explicitly related to the church context (“affirmation of the universal dominion of the Church”). The latter iconological recognition supports a final one which relates the bolognese fountain representation to the concept of "affirmation of papal power over the city of Bologna". In this way, it's possible to model the original meaning brought by the source and the different intepretations according to the contexts in which it's applied. Furthermore, this structure could be a possible way to represent the phenomenon of meaning remediation from a textual to a visual work.</p>
 							</div>
 						</div>
 						<ul class="actions">
