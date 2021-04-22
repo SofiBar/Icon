@@ -347,11 +347,11 @@
 							</div>
 							<div class="4u 12u">
 								<table>
-									<tr><td style="background-color:#8faadc">crm </td> <td>  <a href="http://www.cidoc-crm.org/cidoc-crm/"> http://www.cidoc-crm.org/cidoc-crm/ </a></td></tr>
-									<tr><td style="background-color:#f4b183">vir </td> <td>  <a href="http://w3id.org/vir/"> http://w3id.org/vir/  </a> </td> </tr>
-									<tr><td style="background-color:#a9d18e">cito</td> <td>  <a href="http://purl.org/spar/cito/"> http://purl.org/spar/cito/  </a> </td> </tr>
-									<tr><td style="background-color:#a9d18e">pro </td> <td>  <a href="http://purl.org/spar/pro/"> http://purl.org/spar/pro/ </a> </td> </tr>
-									<tr><td style="background-color:#ff7575">icon </td> <td> not modelled yet</td> </tr>
+									<tr><td style="background-color:#DAE8FC">crm </td> <td>  <a href="http://www.cidoc-crm.org/cidoc-crm/"> http://www.cidoc-crm.org/cidoc-crm/ </a></td></tr>
+									<tr><td style="background-color:#FFE6CC">vir </td> <td>  <a href="http://w3id.org/vir/"> http://w3id.org/vir/  </a> </td> </tr>
+									<tr><td style="background-color:#D5E8D4">cito</td> <td>  <a href="http://purl.org/spar/cito/"> http://purl.org/spar/cito/  </a> </td> </tr>
+									<tr><td style="background-color:#D5E8D4">pro </td> <td>  <a href="http://purl.org/spar/pro/"> http://purl.org/spar/pro/ </a> </td> </tr>
+									<tr><td style="background-color:#FF9999">icon </td> <td> not modelled yet</td> </tr>
 									<tr><td style="background-color:#ffffff; border-color:#969696">ENI URI </td> <td> external links</td> </tr>
 								</table>
 							</div>
@@ -536,7 +536,8 @@ cito:citesAsEvidence ?evidence.
 						<div class="row">
 							<div class="6u 12u">
 								<div class="image fit">
-									<img src="images/img02.jpg" alt="" />
+									<a title="Lorenzo Lotto, Public domain, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Venus_and_Cupid.JPG"><img width="512" alt="Venus and Cupid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Venus_and_Cupid.JPG/512px-Venus_and_Cupid.JPG"></a>
+									
 									<p><b>Fig. 2 </b>Lorenzo Lotto, <i>Venus and Cupid</i>, ca. 1520, New York, Metropolitan Museum</p>
 
 								</div>
@@ -608,7 +609,7 @@ cito:citesAsEvidence ?evidence.
 									<pre>
 <code>
 prefix icon: < http://example.org/> 
-prefix icon_dataset: < http://icon_dataset.org/>
+prefix data: <http://w3id.org/artmeaning/> 
 
 SELECT ?representation ?attribute
 WHERE {
@@ -690,7 +691,7 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 						<div class="row">
 							<div class="6u 12u">
 								<div class="image fit">
-									<img src="images/img03.jpg" alt="" />
+									<a title="Benozzo Gozzoli, Public domain, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Gozzoli_magi.jpg"><img width="512" alt="Gozzoli magi" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Gozzoli_magi.jpg/512px-Gozzoli_magi.jpg"></a>
 									<p><b>Fig. 3 </b>Benozzo Gozzoli, <i>Procession of the young Mago</i>,  1459-1462, Florence, Palazzo Medici</p>
 								</div>
 							</div>
@@ -815,12 +816,14 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 						<div class="row 200%">
 							<div class="6u 12u">
 								<div class="image fit">
+									<a href="https://gallica.bnf.fr/ark:/12148/btv1b9061004x/f338.item" target="_blank">
 									<img src="images/img04.jpg" alt="" />
-									<p><b>Fig. 4 </b>Parigi, Bibliothèque Nationale de France, ms 6362, <i>Histoire Universelle</i>, XV sec. Anonymous, <i>The Rape of Proserpina</i></p>
+									</a>
+									<p><b>Fig. 4 </b>Parigi, Bibliothèque Nationale de France, ms 6362, <i>Histoire Universelle</i>, XV sec. Anonymous, <i>The Rape of Proserpina. Source gallica.bnf.fr / BnF</i></p>
 								</div>
 								<div class="image fit">
 									<img src="images/img05.jpg" alt="" />
-									<p><b>Fig. 5 </b>Gian Lorenzo Bernini, <i>The Rape of Proserpina</i>, 1622, Rome, Galleria Borghese</p>
+									<p><b>Fig. 5 </b>Gian Lorenzo Bernini, <i>The Rape of Proserpina</i>, 1622, Rome, Galleria Borghese. Picture by <a href="https://commons.wikimedia.org/wiki/File:Rape_of_Proserpina_by_Gian_Lorenzo_Bernini,_1621-1622,_marble_-_Galleria_Borghese_-_Rome,_Italy_-_DSC04604.jpg">Daderot</a>, Public domain, Wikimedia Commons </p>
 								</div>
 							</div>
 							<div class="6u 12u">
@@ -880,7 +883,9 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 						<div class="row">
 							<div class="6u 12u">
 								<div class="image fit">
-									<img src="images/img06.jpg" alt="" />
+									<a title="Musei Vaticani, Public domain, attraverso Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Laocoon_Pio-Clementino_Inv1059-1064-1067.jpg">
+										<img width="512" alt="Laocoon Pio-Clementino Inv1059-1064-1067" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Laocoon_Pio-Clementino_Inv1059-1064-1067.jpg/512px-Laocoon_Pio-Clementino_Inv1059-1064-1067.jpg">
+									</a>
 									<p><b>Fig. 6 </b>Agesander, Athenodoros and Polydorus, <i>Laocoön and His Sons</i>, 40-20 B.C., Vatican City, Vatican Museums</p>
 								</div>
 							</div>
@@ -1116,7 +1121,7 @@ WHERE {
 							<div class="6u 12u">
 								<div class="image fit">
 									<img src="images/img07.jpg" alt="" />
-									<p><b>Fig. 7 </b>Jan Van Eyck, <i>Annunciation</i>, 1434, Washington, National Gallery of Art</p>
+									<p><b>Fig. 7 </b>Jan Van Eyck, <i>Annunciation</i>, 1434, Washington, National Gallery of Art. <a href="https://commons.wikimedia.org/wiki/File:Annunciation_-_Jan_van_Eyck_-_1434_-_NG_Wash_DC.jpg">Picture</a> in Public domain, Wikimedia Commons</p>
 								</div>
 							</div>
 							<div class="6u 12u">
@@ -1124,7 +1129,7 @@ WHERE {
 								<h4>Artwork description</h4>
 								<p>The last case study of this section (Figg. 7, 8), concerning the Mary Immaculate Conception, had been selected as representative of examples in which iconographical variants of the same subject witness different beliefs or societal aspects. Indeed, different theories on how the religious event took place exist since Luke’s Gospel (I:26-38) doesn’t explain it in detail; the most common one given by Church Fathers is that it happened during the Annunciation, because God, speaking through archangel Gabriel, fertilised the Virgin (Hirn, 1957, pp. 296-298).  Artworks depicting this subject reflect the hypothesis about how it happened: whereas the common iconography of the Immaculate Conception is depicted by a beam of light containing the Holy Spirit dove which hits Mary’s head, in some cases, artists try to represent the God word penetrating Mary through her ear. </p>
 								<div class="image fit">
-									<img src="images/img08.jpg" alt="" />
+									<a title="Daderot, Public domain, attraverso Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Marienkapelle_W%C3%BCrzburg_-_IMG_6741.JPG"><img width="512" alt="Marienkapelle Würzburg - IMG 6741" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Marienkapelle_W%C3%BCrzburg_-_IMG_6741.JPG/512px-Marienkapelle_W%C3%BCrzburg_-_IMG_6741.JPG"></a>
 									<p><b>Fig. 8 </b>c. XV sculptor, <i>Annunciation</i>, Würzburg, Marienkapelle, gable of the north portal</p>
 								</div>
 								<p>To model this variant, we compared the Jan Van Eyck painting, showing the classical iconography, to the Marienkapelle representation (Fig. 8). The latter shows God blowing through a tube in the woman's ear, to physically express the theory treated above. In other artworks, different variants of the theme depending on theologians interpretations can be found (i. e. Pacino di Bonaguida, Lignum vitae, 1310-1315, Florence, Gallerie dell'Accademia).  
@@ -1200,11 +1205,11 @@ WHERE {
 							<div class="6u 12u">
 								<div class="image fit">
 									<a title="Sailko, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Correggio,_camera_di_san_paolo,_1518-19,_lunette_a_monocromo_02_satiro.jpg"><img width="1024" alt="Correggio, camera di san paolo, 1518-19, lunette a monocromo 02 satiro" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Correggio%2C_camera_di_san_paolo%2C_1518-19%2C_lunette_a_monocromo_02_satiro.jpg/512px-Correggio%2C_camera_di_san_paolo%2C_1518-19%2C_lunette_a_monocromo_02_satiro.jpg"></a>
-									<p><b>Fig. 9 </b>Correggio, <i>Camera di San Paolo</i>, 1518, Parma, <i>Pan</i></p>
+									<p><b>Fig. 9 </b>Correggio, <i>Camera di San Paolo</i>, 1518, Parma, <i>Pan</i>. Picture by <a href="https://commons.wikimedia.org/wiki/File:Correggio,_camera_di_san_paolo,_1518-19,_lunette_a_monocromo_02_satiro.jpg">Sailko</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via Wikimedia Commons</p>
 								</div>
 								<div class="image fit">
 									<a title="Sailko, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Correggio,_camera_di_san_paolo,_1518-19,_01.jpg"><img width="1024" alt="Correggio, camera di san paolo, 1518-19, 01" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Correggio%2C_camera_di_san_paolo%2C_1518-19%2C_01.jpg/512px-Correggio%2C_camera_di_san_paolo%2C_1518-19%2C_01.jpg"></a>
-									<p><b>Fig. 10 </b>Correggio, <i>Camera di San Paolo</i>, 1518, Parma</p>
+									<p><b>Fig. 10 </b>Correggio, <i>Camera di San Paolo</i>, 1518, Parma. Picture by <a href="https://commons.wikimedia.org/wiki/File:Correggio,_camera_di_san_paolo,_1518-19,_01.jpg">Sailko</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via Wikimedia Commons</p>
 								</div>
 							</div>
 							<div class="6u 12u">
@@ -1257,6 +1262,7 @@ WHERE {
 							<div class="6u 12u">
 								<div class="image fit">
 									<a title="Giambologna, CC BY-SA 4.0 &lt;https://creativecommons.org/licenses/by-sa/4.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:(Bologna)_-_Fontana_del_Nettuno.jpg"><img width="1024" alt="(Bologna) - Fontana del Nettuno" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/%28Bologna%29_-_Fontana_del_Nettuno.jpg/1024px-%28Bologna%29_-_Fontana_del_Nettuno.jpg"></a>
+									<a href="https://commons.wikimedia.org/wiki/File:(Bologna)_-_Fontana_del_Nettuno.jpg">Giambologna</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a>, via Wikimedia Commons
 									<p><b>Fig. 11 </b>Giambologna and Tommaso Laureti, <i>Neptune Fountain</i>, 1563-66, Bologna</p>
 								</div>
 								<div class="image fit">
@@ -1366,13 +1372,13 @@ WHERE {
 									<a href="https://gallica.bnf.fr/ark:/12148/btv1b52000858n/f118.image" target="_blank">
 										<img src="images/img13.jpg" alt="" />
 									</a>
-									<p><b>Fig. 13 </b>Parigi, Bibliothèque Nationale de France, Marco Polo, <i>Livre des merveilles</i>, XV sec, ms 2810, folio 55v. Anonymous, <i>crocodile</i></p>
+									<p><b>Fig. 13 </b>Parigi, Bibliothèque Nationale de France, Marco Polo, <i>Livre des merveilles</i>, XV sec, ms 2810, folio 55v. Anonymous, <i>crocodile. Source gallica.bnf.fr / BnF</i></p>
 								</div>
 								<div class="image fit">
 									<a href="https://gallica.bnf.fr/ark:/12148/btv1b52000858n" target="_blank">
 										<img src="images/img14.jpg" alt="" />
 									</a>
-									<p><b>Fig. 14 </b>Parigi, Bibliothèque Nationale de France, Marco Polo, <i>Livre des merveilles</i>, XV sec, ms 2810, folio 24r. Anonymous, <i>salamander</i></p>
+									<p><b>Fig. 14 </b>Parigi, Bibliothèque Nationale de France, Marco Polo, <i>Livre des merveilles</i>, XV sec, ms 2810, folio 24r. Anonymous, <i>salamander. Source gallica.bnf.fr / BnF</i></p>
 								</div>
 							</div>
 							<div class="6u 12u">
@@ -1443,13 +1449,13 @@ WHERE {
 									<a href="https://www.canalgrandevenezia.it/mappa/sculture/mappa-san-marco/sculture/san-marco-900/e-dx-109-basilica-san-marco-lato-ovest-09.jpg" target="_blank">
 										<img src="images/img15.jpg" alt="" />
 									</a>
-									<p><b>Fig. 15 </b><i>Hercules and the Erymanthian Boar</i>, c. III A.D., Venice, Basilica di San Marco, external wall </p>
+									<p><b>Fig. 15 </b><i>Hercules and the Erymanthian Boar</i>, c. III A.D., Venice, Basilica di San Marco, external wall. Published by <a href="https://www.canalgrandevenezia.it/" target="_blank">www.canalgrandevenezia.it</a> under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/it/deed.it" target="_blank">Creative commons 3.0 license</a> </p>
 								</div>
 								<div class="image fit">
 									<a href="https://www.canalgrandevenezia.it/mappa/sculture/mappa-san-marco/sculture/san-marco-900/e-dx-109-basilica-san-marco-lato-ovest-01.jpg" target="_blank">
 										<img src="images/img16.jpg" alt="" />
 									</a>
-									<p><b>Fig. 16 </b><i>Allegory of Salvation</i>, c. XIII A.D., Venice, Basilica di San Marco, external wall </p>
+									<p><b>Fig. 16 </b><i>Allegory of Salvation</i>, c. XIII A.D., Venice, Basilica di San Marco, external wall. Published by <a href="https://www.canalgrandevenezia.it/" target="_blank">www.canalgrandevenezia.it</a> under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/it/deed.it" target="_blank">Creative commons 3.0 license</a> </p>
 								</div>
 							</div>
 							<div class="6u 12u">
@@ -1595,20 +1601,22 @@ SELECT ?subject1 ?relation ?subject2
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
 									<h5> cq10.3 </h5>
-									<p><i>find artworks involved both in a prototypical relation with type compositional motifs recovery and in an iconological recognition</i></p>
+									<p><i>Find artworks involved both in a prototypical relation with type compositional motifs recovery and in an iconological recognition</i></p>
 									<pre>
 <code>
-SELECT ?artwork
+SELECT ?artwork1 ?artwork2
 WHERE {
-	?ic_rec assigns to ?artwork, ?artwork2; a icon:IconologicalRecognition.
-	?artwork2 a crm:E22_man-made_object.
-	?artwork a crm:E22_man-made_object;
-	vir:K1_denotes ?representation.
+	?ic_rec assigns to ?artwork1URI, ?artwork2URI; a icon:IconologicalRecognition.
+	?artwork2URI a crm:E22_man-made_object; 
+		vir:K1_denotes ?representation2.
+	?artwork1URI a crm:E22_man-made_object;
+		vir:K1_denotes ?representation.
 	?representation vir:K4i_has_visual_prototype ?representation2.
 	vir:K4i_has_visual_prototype vir:K4.1_prototypical_mode ?type.
 	?type a crmE55_type;
-	rdfs:label “copy of compositional motifs” 
-	^?representation2 vir:K1_denotes ?artwork2.
+	rdfs:label “copy of compositional motifs”.
+	?artwork1URI rdfs:label ?artwork1. 
+	?artwork2URI rdfs:label ?artwork2. 
 }
 </code>
 									</pre>
@@ -1617,12 +1625,10 @@ WHERE {
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?artwork</th>
+										<th>?artwork1</th><th>?artwork2</th>
 										<tr>
-											<td>###</td>
-										</tr>
-										<tr>
-											<td>###</td>
+											<td>Allegory of salvation relief in st. Mark, Venice</td>
+											<td>Hercules and the Erymanthian Boar relief in st. Mark, Venice</td>
 										</tr>
 									</table>
 								</div>
@@ -1658,11 +1664,11 @@ WHERE {
 							<div class="6u 12u">
 								<div class="image fit">
 									<a title="Louvre Museum, CC BY 2.5 &lt;https://creativecommons.org/licenses/by/2.5&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Saturne_enlevant_Cybele_Louvre_MR2804_n3.jpg"><img width="1024" alt="Saturne enlevant Cybele Louvre MR2804 n3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Saturne_enlevant_Cybele_Louvre_MR2804_n3.jpg/1024px-Saturne_enlevant_Cybele_Louvre_MR2804_n3.jpg"></a>
-									<p><b>Fig. 17 </b>Thomas Regnaudin, <i>Rape of Cybele</i>, 1678, Paris, Jardins des Tuileries</p>
+									<p><b>Fig. 17 </b>Thomas Regnaudin, <i>Rape of Cybele</i>, 1678, Paris, Jardins des Tuileries. <a href="https://commons.wikimedia.org/wiki/File:Saturne_enlevant_Cybele_Louvre_MR2804_n3.jpg">Louvre Museum</a>, <a href="https://creativecommons.org/licenses/by/2.5">CC BY 2.5</a>, via Wikimedia Commons</p>
 								</div>
 								<div class="image fit">
-									<a  href="https://collections.vam.ac.uk/item/O89109/time-and-opportunity-statuette-le-marchand-david/"><img width="1024" alt="" src="https://media.vam.ac.uk/media/thira/collection_images/2006AJ/2006AJ7671_jpg_ds.jpg"></a>
-									<p><b>Fig. 18 </b>David Le Marchand, <i>Time and Opportunity</i>, 700-1720 ca, London, Victoria and Albert Museum</p>
+									<a  href="https://collections.vam.ac.uk/item/O89109/time-and-opportunity-statuette-le-marchand-david/" target="_blank"><img width="1024" alt="" src="images\img18.jpg"></a>
+									<p><b>Fig. 18 </b>David Le Marchand, <i>Time and Opportunity</i>, 700-1720 ca, London, Victoria and Albert Museum. © Victoria and Albert Museum, London</p>
 								</div>
 							</div>
 							<div class="6u 12u">
@@ -1739,36 +1745,291 @@ WHERE {
 					</div>
 				</section>
 				<section id="queries" class="wrapper style2">
-					<div class="container">
-						<div class="row">
-							<div 6u 12u>
-								<h3>Refers to</h3>
-								<p><i>Select artworks where an event refers to another event. </i></p>
+					<div class="container 95%">
+							<p> In this section we show how artworks described in this way can be queried, extracting significant knowledge for art historians' research on iconography, iconology, style and history of culture. </p>
+							<h4>Overall competency questions using the new ontology</h4>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> CQ1 </h5>
+									<p><i> Select artworks where an event (a) refers to another event (b). In fact, in some case studies an event depicted symbolically refers to another one. For example, in Vermeer’s <i>Woman Holding a Balance</i> the act of weighing by means of an empty balance symbolically refers to the event of weighing souls. The same pattern is recognized in  Lotto’s <i>Venus and Cupid</i>, Jan van Eyck’s <i>Annunciation</i> and the same subject sculpted in Marienkapelle in Wurzburg. </i></p>
+									<pre>
+<code>
+prefix icon: &lt;http://w3id.org/icon/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt; 
+
+
+SELECT ?a ?b ?artwork1 ?artwork2
+WHERE {
+	?a icon:refers_to ?b . ?a ????? ?artwork1 .
+	?a rdf:type E5_event .
+	?b rdf:type E5_event . ?b ????? ?artwork2. 
+}
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?phenomenon</th><th>?label</th>
+										<tr>
+											<td>data:flemish-catholic-worship-xvii-century</td>
+											<td>Catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
+										</tr>
+									</table>
+								</div>
 							</div>
-							<div 6u 12u>
-								<p>select ?a ?b ?artwork where <br/>
-									?a refers to ?b <br/>
-									?a rdf:type E5_event <br/>
-									?b rdf:type E5_event
-								</p>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq1.2 </h5>
+									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
+									<pre>
+<code>										
+SELECT ?relation 
+WHERE {
+   data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
+}
+</code>
+
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?relation</th>
+										<tr>
+											<td>icon:symbolicallyRefersTo </td>
+										</tr>
+									</table>
+								</div>
 							</div>
-						</div>
-	
-					</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq1.3 </h5>
+									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
+									<pre>
+<code>
+SELECT ?evidence ?label
+WHERE {
+    data:vermeer-icon-rec a icon:IconologicalRecognition ;
+icon:assignsTo data:vermeer-woman-holding-balance ;
+cito:citesAsEvidence ?evidence.
+?evidence rdfs:label ?label.
+}
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?evidence</th><th>?label</th>
+										<tr>
+											<td>data:catholic-theme-attribute </td>
+											<td>catholic theme</td>
+										</tr>
+										<tr>
+											<td>data:home-interior-attribute </td>
+											<td>home interior</td>
+										</tr>
+									</table>
+								</div>
+						<div class="container 95%">
+							
+							<h4>Competency questions using VIR</h4>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> CQ1 </h5>
+									<p><i> Select all the artworks in which an event symbolically refers to another one</i></p>
+									<pre>
+<code>
+prefix icon: &lt;http://w3id.org/icon/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt; 
+
+
+SELECT ?a ?b ?artwork1 ?artwork2
+WHERE {
+	?a icon:refers_to ?b . ?a ????? ?artwork1 .
+	?a rdf:type E5_event .
+	?b rdf:type E5_event . ?b ????? ?artwork2. 
+}
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?phenomenon</th><th>?label</th>
+										<tr>
+											<td>data:flemish-catholic-worship-xvii-century</td>
+											<td>Catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq1.2 </h5>
+									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
+									<pre>
+<code>										
+SELECT ?relation 
+WHERE {
+   data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
+}
+</code>
+
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?relation</th>
+										<tr>
+											<td>icon:symbolicallyRefersTo </td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq1.3 </h5>
+									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
+									<pre>
+<code>
+SELECT ?evidence ?label
+WHERE {
+    data:vermeer-icon-rec a icon:IconologicalRecognition ;
+icon:assignsTo data:vermeer-woman-holding-balance ;
+cito:citesAsEvidence ?evidence.
+?evidence rdfs:label ?label.
+}
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?evidence</th><th>?label</th>
+										<tr>
+											<td>data:catholic-theme-attribute </td>
+											<td>catholic theme</td>
+										</tr>
+										<tr>
+											<td>data:home-interior-attribute </td>
+											<td>home interior</td>
+										</tr>
+									</table>
+								</div>
+								<div class="container 95%">
+
+							<h4>Competency questions using both VIR and CIDOC-CRM</h4>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> CQ1 </h5>
+									<p><i> Select all the artworks in which an event symbolically refers to another one</i></p>
+									<pre>
+<code>
+prefix icon: &lt;http://w3id.org/icon/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt; 
+
+
+SELECT ?a ?b ?artwork1 ?artwork2
+WHERE {
+	?a icon:refers_to ?b . ?a ????? ?artwork1 .
+	?a rdf:type E5_event .
+	?b rdf:type E5_event . ?b ????? ?artwork2. 
+}
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?phenomenon</th><th>?label</th>
+										<tr>
+											<td>data:flemish-catholic-worship-xvii-century</td>
+											<td>Catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq1.2 </h5>
+									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
+									<pre>
+<code>										
+SELECT ?relation 
+WHERE {
+   data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
+}
+</code>
+
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?relation</th>
+										<tr>
+											<td>icon:symbolicallyRefersTo </td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq1.3 </h5>
+									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
+									<pre>
+<code>
+SELECT ?evidence ?label
+WHERE {
+    data:vermeer-icon-rec a icon:IconologicalRecognition ;
+icon:assignsTo data:vermeer-woman-holding-balance ;
+cito:citesAsEvidence ?evidence.
+?evidence rdfs:label ?label.
+}
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?evidence</th><th>?label</th>
+										<tr>
+											<td>data:catholic-theme-attribute </td>
+											<td>catholic theme</td>
+										</tr>
+										<tr>
+											<td>data:home-interior-attribute </td>
+											<td>home interior</td>
+										</tr>
+									</table>
+								</div>
 				</section>
 
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
-					<ul class="icons">
+					<!--<ul class="icons">
 						<li><a href="#" class="icon fa-facebook"></a></li>
 						<li><a href="#" class="icon fa-twitter"></a></li>
 						<li><a href="#" class="icon fa-instagram"></a></li>
-					</ul>
+					</ul> -->
 					<ul class="copyright">
-						<li>&copy; Untitled</li>
+						<li>&copy; Sofia Baroncini and Marilena Daquino</li>
 						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
-						<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+						<li>contacts: <a href="mailto:sofia.baroncini4@unibo.it">sofia.baroncini4@unibo.it</a>
+							<a href="mailto:marilenadaquino2@unibo.it">marilenadaquino2@unibo.it</a></li>
 					</ul>
 				</div>
 			</footer>
