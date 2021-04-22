@@ -456,11 +456,12 @@ WHERE {
 									<h5> cq1.2 </h5>
 									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
 									<pre>
+<code>										
 SELECT ?relation 
 WHERE {
    data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
 }
-
+</code>
 
 									</pre>
 								</div>
@@ -480,6 +481,7 @@ WHERE {
 									<h5> cq1.3 </h5>
 									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
 									<pre>
+<code>
 SELECT ?evidence ?label
 WHERE {
     data:vermeer-icon-rec a icon:IconologicalRecognition ;
@@ -487,7 +489,7 @@ icon:assignsTo data:vermeer-woman-holding-balance ;
 cito:citesAsEvidence ?evidence.
 ?evidence rdfs:label ?label.
 }
-
+</code>
 									</pre>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
@@ -601,17 +603,24 @@ cito:citesAsEvidence ?evidence.
 							<h4>Competency questions</h4>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> CQ1 </h5>
-									<p><i>Which attributes allow us to identify which representations?  </i></p>
+									<h5> CQ2.1 </h5>
+									<p><i>What are the subjects represented? Which attributes allow us to identify representations? </i></p>
 									<pre>
+<code>
 prefix icon: < http://example.org/> 
 prefix icon_dataset: < http://icon_dataset.org/>
 
-SELECT ?attribute ?representation
+SELECT ?representation ?attribute
 WHERE {
-?representation icon:hasIdentifyingAttribute ?attribute
+	data:weighing-with-empty-balance crm:P46_is_composed_of ?atom .
+	?atom (crm:P46 / vir:K1 ) | (vir:K1) ?representationURI .
+	?representationURI a vir:IC9_Representation ; 
+	rdfs:label ?representation ;
+	icon:hasIdentifyingAttribute ?attributeURI .
+	?attributeURI rdfs:label ?attribute .
 }
 
+</code>
 									</pre>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
@@ -636,6 +645,7 @@ WHERE {
 									<h5> cq2 </h5>
 									<p><i>### </i></p>
 									<pre>
+
 SELECT ?relation 
 WHERE {
 icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing-souls-last-judgement
@@ -1276,7 +1286,7 @@ WHERE {
 								<!-- inserisci info di stile per le div di descrizione immagine -->
 								<div id="imageDescr" class="2u 12u$(xsmall)">
 									<h6> Neptune fountain (left side) and Raimondi print (right side) formal representation </h6>
-									<p> ###</p>
+									<p> Both the artworks recognition has as source Virgil's <i>Aeneid</i> text, which expresses a meaning shared by the artworks as well. Iconological recognitions allow to express it, as well as the meaning that the original message acquired in the new contexts. </p>
 							</div>
 							
 							<p>Vocabularies allow describing all the l. 1 items (except the trident and the related Council of Trent), the <i>Quos Ego</i> iconography (l. 2) and l. 3 symbolic concepts.   
@@ -1290,10 +1300,54 @@ WHERE {
 							<p>Since the aim is to express the fact that the Virgil’s scene has been referenced to express the same meaning, we figured out a way in which it’s possible to express it. New classes and properties should be outlined; thus, an iconological recognition instance associates to both the <i>Quos Ego</i> representations (Raimondi's print and Neptune fountain) the concept of the ruler who quells the rioting, already related to Aeneid, the source in which the political message first appears. Then, on the basis of that, another iconological recognition associates to the print representation another meaning explicitly related to the church context (“affirmation of the universal dominion of the Church”). The latter iconological recognition supports a final one which relates the bolognese fountain representation to the concept of "affirmation of papal power over the city of Bologna". In this way, it's possible to model the original meaning brought by the source and the different intepretations according to the contexts in which it's applied. Furthermore, this structure could be a possible way to represent the phenomenon of meaning remediation from a textual to a visual work.</p>
 							</div>
 						</div>
-						<ul class="actions">
-							<li><a href="#three" class="button special">The case studies</a></li>
-							<li><a href="#typology3" class="button">Typology overwiew</a></li>
-						</ul>						
+<div class="container 95%">
+							<h4>Competency questions</h4>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> CQ8.1 </h5>
+									<p><i> What is the symbolic meaning in common between the Neptune’s statue, the iconographic source Quos Ego, and the text source of Virgil’s work?</i></p>
+									<pre>
+<code>
+prefix icon: &lt;http://w3id.org/icon/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt; 
+
+SELECT ?meaning 
+WHERE {
+	{data:giambologna-neptune crm:P46_is_composed_of ?iconogr_atom} UNION {data:raimondi-quos-ego crm:P46_is_composed_of ?iconogr_atom}.
+	?visual_rec vir:K9_assigns_status_to ?iconogr_atom;
+		vir:K11_assigned ?representation.
+	?representation a vir:IC9_Representation. 
+	?ic_rec icon:assignsTo ?representation;
+		icon:assigned ?meaningURI; a icon:IconologicalRecognition. 
+	data:virgil-aeneid-1-135 crm:P165_incorporates ?meaningURI. 
+	?meaningURI a crm:E90_Symbolic_Meaning; rdfs:label ?meaning. 
+}
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?meaning</th>
+										<tr>
+											
+											<td>ruler appeasing the revolt</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							
+
+						<div class="container 95%">
+							<h4>References</h4>
+							<p>Lavin, I. (1993). Giambologna's Neptune at the Crossroads. In Lavin, I., <i>Past-present: essays on historicism in art from Donatello to Picasso</i>. Berkeley: University of California Press.</p>
+							
+							<ul class="actions">
+								<li><a href="#three" class="button special">The case studies</a></li>
+								<li><a href="#typology3" class="button">Typology overwiew</a></li>
+							</ul>
+						</div>						
 					</div>
 					
 				</section>
@@ -1385,6 +1439,7 @@ WHERE {
 						<div class="row">
 							<div class="6u 12u">
 								<div class="image fit">
+									<!--<img src="images/case-10.jpg" alt="" />-->
 									<a href="https://www.canalgrandevenezia.it/mappa/sculture/mappa-san-marco/sculture/san-marco-900/e-dx-109-basilica-san-marco-lato-ovest-09.jpg" target="_blank">
 										<img src="images/img15.jpg" alt="" />
 									</a>
@@ -1401,9 +1456,8 @@ WHERE {
 							
 								<h4>Artwork description</h4>
 								<p>The first case study of this section considers an example belonging to the tradition of classical visual motifs adopted to represent subjects and content more close to the Middle Ages imagery,  identified by Saxl and Panofsky, opposite to the tradition treated in section 2. </p>
-								<p>The Benozzo Gozzoli Procession of the Magi (1459-1462) is depicted in the family chapel, located in the core of Palazzo Medici in Florence, the building at the time still not finished destined to be the symbol of the increasing family’s importance.
-								</p> 
-								<p>This phenomenon (l. 4) belongs to South Europe countries, where classical visual artworks examples were present. Therefore, that’s the case of a late imperial roman age relief representing Hercules and the Erymanthian Boar (Fig. 15) prototype of the medieval Allegory of Salvation. Since they are both placed on the external wall of Basilica di San Marco in Venice, it’s possible to suppose that the medieval artist directly looked at the roman example as a prototype and intentionally used its motifs to express a subject closer to his sensibility. Thus, although the whole visual composition is unvaried, the boar becomes a deer (l.1), a symbol of the soul (l. 3), king Eurystheus a dragoon crushed by Christ, standing for the devil (l. 3), the lion skin, cloth and Hercules carrying the Erymanthian boar to King Eurystheus turns into Christ who defeats the devil and saves the believers’ souls (Panofsky, Saxl, 1933, p. 228) standing for an allegory of salvation. </p>
+								
+								<p>This phenomenon (l. 4) belongs to South Europe countries, where classical visual artworks examples were present. Therefore, that’s the case of a late imperial roman age relief representing <i>Hercules and the Erymanthian Boar </i>(Fig. 15) prototype of the medieval <i>Allegory of Salvation</i>. Since they are both placed on the external wall of Basilica di San Marco in Venice, it’s possible to suppose that the medieval artist directly looked at the roman example as a prototype and intentionally used its motifs to express a subject closer to his sensibility. Thus, although the whole visual composition is unvaried, the boar becomes a deer (l.1), a symbol of the soul (l. 3), king Eurystheus a dragoon crushed by Christ, standing for the devil (l. 3), the lion skin, cloth and Hercules carrying the Erymanthian boar to King Eurystheus turns into Christ who defeats the devil and saves the believers’ souls (Panofsky, Saxl, 1933, p. 228) standing for an allegory of salvation. </p>
 								
 							</div>
 						</div>
@@ -1412,23 +1466,181 @@ WHERE {
 							<div class="row">
 								<div class="10u 12u$(xsmall)">
 									<div class="image fit">
-										<img src="images\article_schemes\Slide36.jpg" alt="" />
+										<img src="images\article_schemes_new\Hercules-10.svg" alt="" />
 									</div>
 								</div>
 								<!-- inserisci info di stile per le div di descrizione immagine -->
 								<div id="imageDescr" class="2u 12u$(xsmall)">
-									<h6> Chart 19 </h6>
-									<p> ###</p>
+									<h6> Hercules (left side) and Allegory of Salvation (right side) formal representation </h6>
+									<p>Hercules representation is the prototype of the medieval Allegory of Salvation: this is indicated by vir:K4_is_visual_prototype_of and by icon:showsMotifsOf, which evidences the direct relation between specific subjects. The iconological recognition illustrates the cultural phenomenon expressed by this copy of compositional motifs.</p>
 							</div>
 							
-							<p>As represented in chart 19, all first level objects, subjects and basic meanings can be identified with vocabularies, except Eurystheus and the concept of salvation. It’s opportune to highlight that the Iconclass vocabulary identifies exactly the scene represented (94L3241 Hercules carries the boar across his shoulders to Eurystheus, who takes refuge in a bronze tub). Furthermore, by means of crm:P53_has_current_location it’s possible to register St. Mark’s Basilica as the place common to the artworks, important for the recognition of relationships among them. As for the previous case studies, VIR can describe the representation, character, attributes and related vocabulary terms. In addition, the relation vir:K4i_has_visual_prototype can link one artwork to its source, further specified by the subproperty vir:K4.1_prototipical mode that allows expressing which type of relation exists (in this case, “formal motifs recovery”). Nevertheless, this relation doesn’t allow to specify the author and the 4th level phenomenon individuated by the scholars. Thus, an iconological recognition to relate the two artwork considered with the cultural phenomenon is needed; in this way, more artworks witnessing this aspect can be related to the same phenomenon. 
+							<p>As represented in the graph, all first level objects, subjects and basic meanings can be identified with vocabularies, except Eurystheus and the concept of salvation. It’s opportune to highlight that the Iconclass vocabulary identifies exactly the scene represented (<i>94L3241 Hercules carries the boar across his shoulders to Eurystheus, who takes refuge in a bronze tub</i>). Furthermore, by means of <i>crm:P53_has_current_location</i> it’s possible to register St. Mark’s Basilica as the place common to the artworks, important for the recognition of relationships among them. As for the previous case studies, VIR can describe the representation, character, attributes and related vocabulary terms. In addition, the relation <i>vir:K4i_has_visual_prototype</i> can link one artwork to its prototype, further specified by the subproperty <i>vir:K4.1_prototipical mode</i> that allows expressing which type of relation exists (in this case, “copy of compositional motifs”) that is the cultural phenomenon under consideration (lev. 4). Moreover, we add the relation <i>icon:showsMotifsOf</i>, subclass of <i>crm:P130_shows_features_of</i>, to describe in detail the direct correspondence of motifs among characters and attributes represented in the two artworks. However, the pattern does not allow us to specify that the prototypical relation supports the recognition of the general phenomenon of classical contents reused as deprived of their original content, as identified by the scholars. We therefore use an iconological recognition to relate the two artworks with the cultural phenomenon. 
 							</p>
 							
 						</div>
-						<ul class="actions">
-							<li><a href="#three" class="button special">The case studies</a></li>
-							<li><a href="#typology4" class="button">Typology overwiew</a></li>
-						</ul>						
+						<div class="container 95%">
+							<h4>Competency questions</h4>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> CQ10.1 </h5>
+									<p><i> What are the attributes (?attribute1) that allow us to recognize an iconographical subject and what are the attributes (?attribute2) that are relevant to an iconological recognition?</i></p>
+									<pre>
+<code>
+prefix icon: &lt;http://w3id.org/icon/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt; 
+prefix aat:	&lt;http://vocab.getty.edu/page/aat&gt; 
+
+
+
+SELECT ?representation ?attribute1 ?attribute2
+	WHERE {
+	{data:hercules-stmarco-relief vir:K1_denotes ?representationURI} UNION {data:allegory-salvation-stmarco-relief vir:K1_denotes ?representationURI}
+	{?representationURI icon:hasIdentifyingAttribute ?attribute1URI} UNION {?representationURI vir:K17_has_attribute ?attribute2URI}
+	?representationURI a vir:IC9_Representation;
+		rdfs:label ?representation. 
+	?attribute1URI a vir:IC10_Attribute;
+		rdfs:label ?attribute1.
+	?attribute2URI a vir:IC10_Attribute;
+	rdfs:label ?attribute2. 
+	}
+
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?representation</th><th>?attribute1</th><th>?attribute2</th>
+										<tr>
+											
+											<td>Hercules and the Erymanthian boar</td>
+											<td>Lion skin</td> 
+											<td></td>
+										</tr>
+										<tr>
+											<td>Hercules and the Erymanthian boar</td>
+											<td>Erymanthian boar</td>
+											<td></td>
+
+										</tr>
+										<tr>
+											<td>Allegory of  Salvation</td>
+											<td></td>
+											<td>Cloth</td>
+										</tr>
+										<tr>
+											<td>Allegory of  Salvation</td>
+											<td></td>
+											<td>Deer</td>
+										</tr>
+										<tr>
+											<td>Allegory of  Salvation</td>
+											<td></td>
+											<td>Dragoon</td>
+										</tr>
+										
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq10.2 </h5>
+									<p><i>What is the relation between characters and attributes in the two scenes?</i></p>
+									<pre>
+<code>
+SELECT ?subject1 ?relation ?subject2
+	WHERE {
+	data:hercules-stmarco-relief vir:k1_denotes ?representation.
+	{?representation (icon:hasIdentifyingAttribute) | (vir:k17_has_attribute) ?subject1URI} UNION {?representation vir:k24_portray ?subject1URI}
+	data:allegory-salvation-stmarco-relief vir:k1_denotes ?representation2.
+	{?representation2 (icon:hasIdentifyingAttribute) | (vir:k17_has_attribute) ?subject2URI} UNION {?representation2 vir:k24_portray ?subject2URI}
+	?subject1URI ?relation ?subject2URI. 
+	?subject1URI rdfs:label ?subject1.
+	?subject2URI rdfs:label ?subject2.
+}
+
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?subject1</th><th>?relation</th><th>?subject2</th>
+										<tr>
+											<td>Deer</td>
+											<td>icon:showsMotifsOf</td>
+											<td>Erymanthian boar</td>
+										</tr>
+										<tr>
+											<td>Dragoon</td>
+											<td>icon:showsMotifsOf</td>
+											<td>Eurystheus</td>
+										</tr>
+										<tr>
+											<td>Christ</td>
+											<td>icon:showsMotifsOf</td>
+											<td>Hercules</td>
+										</tr>
+										<tr>
+											<td>Cloth</td>
+											<td>icon:showsMotifsOf</td>
+											<td>Lion skin</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq10.3 </h5>
+									<p><i>find artworks involved both in a prototypical relation with type compositional motifs recovery and in an iconological recognition</i></p>
+									<pre>
+<code>
+SELECT ?artwork
+WHERE {
+	?ic_rec assigns to ?artwork, ?artwork2; a icon:IconologicalRecognition.
+	?artwork2 a crm:E22_man-made_object.
+	?artwork a crm:E22_man-made_object;
+	vir:K1_denotes ?representation.
+	?representation vir:K4i_has_visual_prototype ?representation2.
+	vir:K4i_has_visual_prototype vir:K4.1_prototypical_mode ?type.
+	?type a crmE55_type;
+	rdfs:label “copy of compositional motifs” 
+	^?representation2 vir:K1_denotes ?artwork2.
+}
+</code>
+									</pre>
+								</div>
+								<!-- inserisci info di stile per le div di descrizione immagine -->
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?artwork</th>
+										<tr>
+											<td>###</td>
+										</tr>
+										<tr>
+											<td>###</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+
+						</div>
+
+						<div class="container 95%">
+							<h4>References</h4>
+							<p>Panofsky, E. (1962). <i>Studies in iconology: Humanistic themes in the art of the Renaissance</i>. New York: Harper & Row.</p>
+							<p>Panofsky, E., Saxl, F. (1933). Classical Mythology in Medieval Art. <i>Metropolitan Museum Studies</i>, 4(2):228-280. </p>
+							
+							<ul class="actions">
+								<li><a href="#three" class="button special">The case studies</a></li>
+								<li><a href="#typology4" class="button">Typology overwiew</a></li>
+							</ul>
+						</div>	
+						
 					</div>
 					
 				</section>
