@@ -211,7 +211,7 @@
 						</ul> -->
 					</div>
 				</section>
-				
+
 				<!-- typology 2-->
 				<section id="typology2" class="wrapper style2 special">
 					<div class="container">
@@ -1731,7 +1731,7 @@ WHERE {
 					
 				</section>
 -->
-<!--
+
 		
 				<section id="four" class="wrapper style3 special">
 					<div class="container">
@@ -1747,7 +1747,7 @@ WHERE {
 				<section id="queries" class="wrapper style2">
 					<div class="container 95%">
 							<p> In this section we show how artworks described in this way can be queried, extracting significant knowledge for art historians' research on iconography, iconology, style and history of culture. </p>
-							<h4>Overall competency questions using the new ontology</h4>
+							<h4 id="cq_iconology">Overall competency questions focusing on iconology</h4>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
 									<h5> CQ1 </h5>
@@ -1758,11 +1758,278 @@ prefix icon: &lt;http://w3id.org/icon/&gt;
 prefix data: &lt;http://w3id.org/artmeaning/&gt; 
 
 
-SELECT ?a ?b ?artwork1 ?artwork2
+SELECT ?artwork ?event1 ?event2 
 WHERE {
-	?a icon:refers_to ?b . ?a ????? ?artwork1 .
-	?a rdf:type E5_event .
-	?b rdf:type E5_event . ?b ????? ?artwork2. 
+	?event1URI icon:symbolicallyRefers_to ?event2URI.
+	?artworkURI (&lt;&gt;)|(&lt;&gt;)* ?event1URI, ?event2URI.
+	?artworkURI a crm:E22_Man-made_Object; rdfs:label ?artwork.
+	?event1URI rdf:type E5_event; rdfs:label ?event1.
+	?event2URI rdf:type E5_event; rdfs:label ?event2.
+}
+
+</code>
+									</pre>
+								</div>
+								 
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?artwork</th><th>?event1</th><th>?event2</th>
+										<tr>
+											<td>Vermeer, <i>Woman holding a Balance</i></td>
+											<td>Act of weighing with an empty balance</td>
+											<td>Act of weighing souls during the Last Judgement</td>
+										</tr>
+										<tr>
+											<td>Lotto, <i>Venus and Cupid</i></td>
+											<td>Act of urinating</td>
+											<td>To fertilise</td>
+										</tr>
+										<tr>
+											<td><i>Annunciation</i>, Würzburg, Marienkapelle, gable of the north portal</td>
+											<td>To blow in a tube</td>
+											<td>To fertilise</td>
+										</tr>
+										<tr>
+											<td>Jan Van Eyck, <i>Annunciation</i></td>
+											<td>To fly towards Mary's head</td>
+											<td>To fertilise</td>
+										</tr>
+										<tr>
+											<td>Miniature of <i>Salamander</i>, codex 2810, folio 24r​</td>
+											<td>Man not burned by flames</td>
+											<td>The Right is not burned by lust and sensuality​</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq2 </h5>
+									<p><i> Select artworks related to the same cultural phenomenon, and, if present, their date and place of production</i></p>
+									<pre>
+<code>										
+SELECT ?artwork ?phenomenon ?date ?place
+WHERE {
+	?ic_rec icon:assigned ?phenomenonURI;
+		icon:assignsTo ?artworkURI.
+	?phenomenonURI a icon:CulturalPhenomenon; rdfs:label ?phenomenon. 
+	?artworkURI a crm:E22:man-made_object; rdfs:label ?artwork.
+	OPTIONAL{
+		?production crm:P108_has_produced ?artworkURI;
+			crm:P7_took_place_at ?placeURI;
+		?placeURI a crm:E53_place; rdfs:label ?place.}
+	OPTIONAL{
+		?production crm:P108_has_produced ?artworkURI;
+			crm:P4_has_time-span ?dateURI.
+		?dateURI a crm:E52_time-span; rdfs:label ?date.} 
+}
+
+
+</code>
+
+									</pre>
+								</div>
+								 
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?artwork</th><th>?phenomenon</th><th>?date</th><th>?place</th>
+										<tr>
+											<td>Vermeer, <i>Woman holding a Balance</i></td>
+											<td>Catholic worship practiced in private home interior due to the prohibition of its public profession</td>
+											<td>1664 </td>
+											<td>Netherlands </td>
+										</tr>
+										<tr>
+											<td>Vermeer, <i>Allegory of Faith</i></td>
+											<td>Catholic worship practiced in private home interior due to the prohibition of its public profession</td>
+											<td>ca. 1670–72</td>
+											<td>Netherlands </td>
+										</tr>
+
+										<tr>
+											<td><i>The Rape of Proserpina</i>, folio 161r, ms 6362</td>
+											<td> Representation of classical content with contemporary formal motifs</td>
+											<td>c. XV</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td><i>Laocoon and his sons</i>, folio 15v, ms vat. lat. 2761</td>
+											<td> Representation of classical content with contemporary formal motifs</td>
+											<td>c. XIV</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Bernini, <i>The rape of Proserpina</i></td>
+											<td> Representation of classical content with contemporary formal motifs</td>
+											<td>1622-1623</td>
+											<td>Rome</td>
+										</tr>
+
+										<tr>
+											<td><i>Annunciation</i>, Würzburg, Marienkapelle, gable of the north portal</td>
+											<td>Different medieval beliefs on Immaculate Conception depicted by visual art</td>
+											<td>c. XV</td>
+											<td>Würzburg</td>
+										</tr>
+										<tr>
+											<td>Jan Van Eyck, <i>Annunciation</i></td>
+											<td>Different medieval beliefs on Immaculate Conception depicted by visual art</td>
+											<td>1434-36</td>
+											<td>Flanders</td>
+										</tr>
+
+										<tr>
+											<td><i>Salamander</i>, folio 24r​, codex 2810</td>
+											<td>current Marvels of the East beliefs: the illuminator does not respect  Marco Polo’s report when it contraddicts this tradition​</td>
+											<td>c. XV</td>
+											<td>Paris</td>
+										</tr>
+										<tr>
+											<td><i>Crocodile</i>, folio 55v, codex 2810​</td>
+											<td>current Marvels of the East beliefs: the illuminator does not respect  Marco Polo’s report when it contraddicts this tradition​</td>
+											<td>c. XV</td>
+											<td>Paris</td>
+										</tr>
+
+										<tr>
+											<td><i>Hercules and the Erymanthian boar </i>relief</td>
+											<td>classical motifs copied deprived of their classical content during the Middle Ages</td>
+											<td>c. III</td>
+											<td>Venice, St. Mark</td>
+										</tr>
+										<tr>
+											<td><i>Allegory of Salvation</i> relief</td>
+											<td>lassical motifs copied deprived of their classical content during the Middle Ages</td>
+											<td>c. XIII</td>
+											<td>Venice, St. Mark</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq3 </h5>
+									<p><i>Select the names of all the authors who are responsible for an iconological recognition, both of third level (individuating a meaning or role) and fourth level (individuating a cultural phenomenon). </i></p>
+									<pre>
+<code>
+SELECT DISTINCT ?author 
+WHERE {
+	?ic_rec crm:P14_carried_out_by ?authorURI ; a icon:IconologicalRecognition. 
+	?authorURI a crm:E21_person; rdfs:label ?author. 
+	?ic_rec icon:assigned ?phenomenonOrMeaningURI. 
+	{?phenomenonOrMeaning a icon:CulturalPhenomenon.} 
+	UNION 
+	{?phenomenonOrMeaning a crm:E28_Conceptual_Object.}
+	UNION
+	{?phenomenonOrMeaning a crm:crm:E90_Symbolic_Object.}
+	UNION
+	{?phenomenonOrMeaning a pro:roleInTime.}
+}
+
+
+</code>
+									</pre>
+								</div>
+								 
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?author</th>
+										<tr>
+											<td>Keith Christiansen</td>
+										<tr>
+											<td>Franco Cardini</td>
+										</tr>
+										<tr>
+											<td>Erwin Panofsky</td>
+										</tr>
+										<tr>
+											<td>Irving Lavin​</td>
+										</tr>
+										<tr>
+											<td>Rudolf Wittkower</td>
+										</tr>
+										<tr>
+											<td>Fritz Saxl</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq4 </h5>
+									<p><i>Which elements do support the interpretation of the meaning of a representation?</i></p>
+									<pre>
+<code>
+SELECT ?supporting_element  ?supported_meaning
+
+WHERE {
+	?ic_rec cito:givesSupportTo ?ic_rec2 ;
+		a icon:IconologicalRecognition.
+	?ic_rec2 a icon:IconologicalRecognition.
+
+	?ic_rec icon:assignsTo ?supporting_elementURI.
+	?ic_rec2 icon:assigned ?supported_meaningURI.
+	?supporting_elementURI rdfs:label ?supporting_element.
+	?supported_meaningURI rdfs:label ?supported_meaning. 
+
+	{?supported_meaningURI a crm:E28_Conceptual_Object}
+	UNION {?supported_meaningURI a crm:E90_symbolic_object}
+	UNION {?supported_meaningURI a pro:roleInTime}
+}
+
+</code>
+									</pre>
+								</div>
+								 
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?supporting_element</th><th>?supported_meaning</th>
+										<tr>
+											<td>Venus’ belt</td><td>Wedding wish</td>
+										<tr>
+											<td>Myrtle</td><td>Wedding wish</td>
+										</tr>
+										<tr>
+											<td>Red loth</td><td>Wedding wish</td>
+										</tr>
+										<tr>
+											<td>Lorenzo de’ Medici​</td><td>Political aspirations of the Medici family</td>
+										</tr>
+										<tr>
+											<td>Cone shell</td><td>Chastity and Integrity challenge toward the Panic terror</td>
+										</tr>
+										<tr>
+											<td>ruler appeasing the revolt</td><td>affirmation of the universal dominion of the Church </td>
+										</tr>
+										<tr>
+											<td>ruler appeasing the revolt</td><td>affirmation of papal power over the city of Bologna</td>
+										</tr>
+										<tr>
+											<td>Quos Ego</td><td>affirmation of papal power over the city of Bologna</td>
+										</tr>
+
+									</table>
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq5 </h5>
+									<p><i>Select attributes which symbolical meaning is determined by a cited source</i></p>
+									<pre>
+<code>
+SELECT ?attribute ?source
+WHERE {
+	?ic_rec a icon:IconologicalRecognition ;
+		icon:assignsTo ?attributeURI ;
+		icon:assigned crm:E90_Symbolic_Object ;
+		cito:citesAsEvidence ?sourceURI .
+	?attributeURI a vir:IC10_Attribute; rdfs:label ?attribute. 
+	?sourceURI a crm:E73_Information_Object; rdfs:label ?source. 
 }
 </code>
 									</pre>
@@ -1771,23 +2038,34 @@ WHERE {
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?phenomenon</th><th>?label</th>
+										<th>?attribute</th><th>?source</th>
 										<tr>
-											<td>data:flemish-catholic-worship-xvii-century</td>
-											<td>Catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
+											<td>Venus’ belt</td><td>Hom. Il, XIV, vv. 213-20</td>
+										<tr>
+											<td>Myrtle</td><td>Claud. carm. min. 29 Magnes</td>
 										</tr>
+										<tr>
+											<td>Red loth</td><td>Claud. carm. min. 29 Magnes</td>
+										</tr>
+										<tr>
+											<td>Cone shell</td><td>Scholia in Aratu</td>
+										</tr>
+
 									</table>
 								</div>
 							</div>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> cq1.2 </h5>
-									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
+									<h5> cq6 </h5>
+									<p><i>Retrieve the references of an iconological recognition and the cultural phenomenon identified. </i></p>
 									<pre>
 <code>										
-SELECT ?relation 
+SELECT DISTINCT ?phenomenon ?ref
 WHERE {
-   data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
+	?ic_rec icon:assignsTo ?artwork; icon:assigned ?phenomenon; a icon:IconologicalRecognition;
+		cito:citesForInformation ?refURI. 
+	?phenomenon a hico:CulturalPhenomenon. 
+	?refURI a crm:E73_Information_Object; rdfs:label ?ref. 
 }
 </code>
 
@@ -1797,63 +2075,61 @@ WHERE {
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?relation</th>
 										<tr>
-											<td>icon:symbolicallyRefersTo </td>
+											<th>?phenomenon</th><th>?ref</th>
+										</tr>
+										<tr>
+											<td>Catholic worship practiced in private home interior due to the prohibition of its public profession</td>
+											<td>https://www.metmuseum.org/art/<br>collection/search/437877</td>
+										</tr>
+										<tr>
+											<td>Representation of classical content with contemporary formal motifs</td>
+											<td>Panofsky, E., Saxl, F. (1933) Classical Mithology in Medieval Art, Studies of the Metropolitan Museum, IV, 2</td>
+										</tr>
+										<tr>
+											<td>Belief that the Immaculate Conception occurred through Mary’s ear​</td>
+											<td>Hirn, Y. (1912), The Sacred Shrine. Boston: Beacon Press, pp. 294-298​</td>
+										</tr>
+										<tr>
+											<td>Belief that the Immaculate Conception occurred through Mary’s head</td>
+											<td>Hirn, Y. (1912), The Sacred Shrine. Boston: Beacon Press, pp. 294-298​</td>
+										</tr>
+										<tr>
+											<td>Current Marvels of the East beliefs: the illuminator does not respect Marco Polo’s report when it contraddicts this tradition</td>
+											<td>Wittkower, R. (1987). Allegory and the migration of symbols</td>
+										</tr>
+										<tr>
+											<td>Classical motifs copied deprived of their classical content during the Middle Ages</td>
+											<td>Panofsky, E., Saxl, F. (1933) Classical Mithology in Medieval Art, Studies of the Metropolitan Museum, IV, 2</td>
 										</tr>
 									</table>
 								</div>
 							</div>
-							<div class="row">
-								<div class="6u 12u$(xsmall)">
-									<h5> cq1.3 </h5>
-									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
-									<pre>
-<code>
-SELECT ?evidence ?label
-WHERE {
-    data:vermeer-icon-rec a icon:IconologicalRecognition ;
-icon:assignsTo data:vermeer-woman-holding-balance ;
-cito:citesAsEvidence ?evidence.
-?evidence rdfs:label ?label.
-}
-</code>
-									</pre>
-								</div>
-								 
-								<div   class="6u 12u$(xsmall)">
-									<h5> result </h5>
-									<table>
-										<th>?evidence</th><th>?label</th>
-										<tr>
-											<td>data:catholic-theme-attribute </td>
-											<td>catholic theme</td>
-										</tr>
-										<tr>
-											<td>data:home-interior-attribute </td>
-											<td>home interior</td>
-										</tr>
-									</table>
-								</div>
+						</div>
 						<div class="container 95%">
 							
-							<h4>Competency questions using VIR</h4>
+							<h4 id="cq_iconography">Competency questions focusing on iconography</h4>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> CQ1 </h5>
-									<p><i> Select all the artworks in which an event symbolically refers to another one</i></p>
+									<h5> CQ7 </h5>
+									<p><i> Retrieve all the attributes depicting a cone shell along with its representation and eventual meaning </i></p>
 									<pre>
 <code>
 prefix icon: &lt;http://w3id.org/icon/&gt;
 prefix data: &lt;http://w3id.org/artmeaning/&gt; 
+prefix aat: &lt;http://vocab.getty.edu/page/aat&gt; 
+prefix ic: &lt;http://www.iconclass.org/rkd/&gt; 
 
-
-SELECT ?a ?b ?artwork1 ?artwork2
+SELECT ?attribute ?representation ?meaning
 WHERE {
-	?a icon:refers_to ?b . ?a ????? ?artwork1 .
-	?a rdf:type E5_event .
-	?b rdf:type E5_event . ?b ????? ?artwork2. 
+	?attributeURI vir:k21_depict_things_of_type aat:300261859;
+		rdfs:label ?attribute.
+	?representationURI (vir:K17 | icon:hasIdentifyingAttribute) ?attributeURI;
+		rdfs:label ?representation
+	OPTIONAL {?attributeURI vir:k14_symbolize ?meaningURI.
+	?meaningURI rdfs:label ?meaning}
 }
+
 </code>
 									</pre>
 								</div>
@@ -1861,52 +2137,66 @@ WHERE {
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?phenomenon</th><th>?label</th>
+										<th>?attribute</th><th>?representation</th><th>?meaning</th>
 										<tr>
-											<td>data:flemish-catholic-worship-xvii-century</td>
-											<td>Catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
+											<td>Cone shell</td>
+											<td>Pan, god of panic​ </td>
+											<td>Panic</td>
+										</tr>
+										<tr>
+											<td>Cone shell</td>
+											<td>Venus and Cupid </td>
+											<td>Fertility</td>
 										</tr>
 									</table>
 								</div>
 							</div>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> cq1.2 </h5>
-									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
+									<h5> cq8 </h5>
+									<p><i>What objects depict the concept of “love” in what artworks? </i></p>
 									<pre>
 <code>										
-SELECT ?relation 
+SELECT ?object ?artwork
 WHERE {
-   data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
+?objectURI vir:K14_symbolize ?concept; rdfs:label ?object.
+	?concept rdfs:seeAlso aat:30005516. 
+	?object (&lt;>|!&lt;&gt;)* ?artworkURI.
+	?artworkURI a crm:E22_Man-made_Object; rdfs:label ?artwork. 
 }
 </code>
-
 									</pre>
 								</div>
 								 
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?relation</th>
+										<th>?object</th><th>?artwork</th>
 										<tr>
-											<td>icon:symbolicallyRefersTo </td>
+											<td>knotted ribbon bracelets</td>
+											<td>Lorenzo Lotto, Venus and Cupid</td>
+										</tr>
+										<tr>
+											<td>putti with dophins</td>
+											<td>Giambologna, Neptune’s fountain</td>
 										</tr>
 									</table>
 								</div>
 							</div>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> cq1.3 </h5>
-									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
+									<h5> cq9 </h5>
+									<p><i>What texts or artworks are sources of a visual recognition? What is the subject identified? </i></p>
 									<pre>
 <code>
-SELECT ?evidence ?label
+SELECT ?subject ?source
 WHERE {
-    data:vermeer-icon-rec a icon:IconologicalRecognition ;
-icon:assignsTo data:vermeer-woman-holding-balance ;
-cito:citesAsEvidence ?evidence.
-?evidence rdfs:label ?label.
+	?visual_rec vir:k10_on_the_base_of ?sourceURI;
+		vir:k11_assigned ?subjectURI.
+	?sourceURI rdfs:label ?source.
+	?subjectURI rdfs:label ?subject.  
 }
+
 </code>
 									</pre>
 								</div>
@@ -1914,36 +2204,70 @@ cito:citesAsEvidence ?evidence.
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?evidence</th><th>?label</th>
 										<tr>
-											<td>data:catholic-theme-attribute </td>
-											<td>catholic theme</td>
+											<th>?subject</th><th>?source</th>
 										</tr>
 										<tr>
-											<td>data:home-interior-attribute </td>
-											<td>home interior</td>
+											<td> Contemporary Venetian wedding dress​</td>
+											<td>Cesare Vecellio, De gli habiti antichi, e moderni di diverse parti del mondo libri due</td>
+										</tr>
+										<tr>
+											<td>Venus’ belt</td>
+											<td>Hom. Il, XIV, vv. 213-20</td>
+										</tr>
+										<tr>
+											<td>Laocoon and his sons</td>
+											<td>Verg. Aen. 2, 199-233</td>
+										</tr>
+										<tr>
+											<td>Annunciation</td>
+											<td>Luke I:26-38</td>
+										<tr>
+											<td>Immaculate conception</td>
+											<td>Luke I:26-38 </td>
+
+										</tr>
+										<tr>	
+											<td>Annunciation</td>
+											<td>Luke I:26-38</td>
+										</tr>
+										<tr>	
+											<td>Immaculate conception</td>
+											<td>Luke I:26-38</td>
+										</tr>
+										<tr>	
+											<td>Pan, god of panic</td>
+											<td>Scholia in Aratu</td>
+										</tr>
+										<tr>	
+											<td>Quos Ego</td>
+											<td>Verg Aen. I, 135</td>
+										</tr>
+										<tr>	
+											<td>Quos Ego</td>
+											<td>Verg Aen. I, 135</td>
 										</tr>
 									</table>
 								</div>
-								<div class="container 95%">
 
-							<h4>Competency questions using both VIR and CIDOC-CRM</h4>
+		
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> CQ1 </h5>
-									<p><i> Select all the artworks in which an event symbolically refers to another one</i></p>
+									<h5> CQ10 </h5>
+									<p><i> Retrieve all the artworks in which the subject “dragoon” appears, with its optional attributes and meanings </i></p>
 									<pre>
 <code>
-prefix icon: &lt;http://w3id.org/icon/&gt;
-prefix data: &lt;http://w3id.org/artmeaning/&gt; 
-
-
-SELECT ?a ?b ?artwork1 ?artwork2
+SELECT ?artwork ?attribute ?meaning 
 WHERE {
-	?a icon:refers_to ?b . ?a ????? ?artwork1 .
-	?a rdf:type E5_event .
-	?b rdf:type E5_event . ?b ????? ?artwork2. 
+	{?subjectURI vir:k21_depict_things_of_type ic:25FF42} UNION {?subjectURI rdfs:seeAlso ic:25FF42}
+	?artworkURI ((vir:k1 / vir:K17_has_attribute)| vir:K1_denotes) ?subjectURI; 
+		rdfs:label ?artwork.
+	OPTIONAL {?subjectURI vir:k17_has_attribute ?attributeURI .
+	?attributeURI rdfs:label ?attribute.}
+	OPTIONAL {?subjectURI vir:K14_symbolize ?meaningURI .
+	?meaningURI rdfs:label ?meaning.}
 }
+
 </code>
 									</pre>
 								</div>
@@ -1951,72 +2275,33 @@ WHERE {
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?phenomenon</th><th>?label</th>
 										<tr>
-											<td>data:flemish-catholic-worship-xvii-century</td>
-											<td>Catholic worship practiced in private home interiors in the Flemish context of XVIII century due to  prohibition of its public profession </td>
+											<th>?artwork</th><th>?attribute</th><th>?meaning</th>
+										</tr>
+										<tr>
+											<td><i>Crocodile</i>, folio 55v, codex 2810​</td>
+											<td>Serpent’s tail​</td>
+											<td></td>
+										</tr>
+										<tr>
+
+											<td><i>Salamander</i>, folio 24r​, codex 2810</td>
+											<td>Bat wings</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>St. Marco, Allegory of salvation relief</td>
+											<td></td>
+											<td>Devil</td>
+
+
 										</tr>
 									</table>
 								</div>
 							</div>
-							<div class="row">
-								<div class="6u 12u$(xsmall)">
-									<h5> cq1.2 </h5>
-									<p><i>What is the relation between the act of weighting an empty balance and the weighing of Souls in the Last Judgement?</i></p>
-									<pre>
-<code>										
-SELECT ?relation 
-WHERE {
-   data:weighing-with-empty-balance ?relation data:weighing-souls-last-judgement
-}
-</code>
-
-									</pre>
-								</div>
-								 
-								<div   class="6u 12u$(xsmall)">
-									<h5> result </h5>
-									<table>
-										<th>?relation</th>
-										<tr>
-											<td>icon:symbolicallyRefersTo </td>
-										</tr>
-									</table>
-								</div>
-							</div>
-							<div class="row">
-								<div class="6u 12u$(xsmall)">
-									<h5> cq1.3 </h5>
-									<p><i>What is the evidence supporting the relation between the artwork and the cultural phenomenon?</i></p>
-									<pre>
-<code>
-SELECT ?evidence ?label
-WHERE {
-    data:vermeer-icon-rec a icon:IconologicalRecognition ;
-icon:assignsTo data:vermeer-woman-holding-balance ;
-cito:citesAsEvidence ?evidence.
-?evidence rdfs:label ?label.
-}
-</code>
-									</pre>
-								</div>
-								 
-								<div   class="6u 12u$(xsmall)">
-									<h5> result </h5>
-									<table>
-										<th>?evidence</th><th>?label</th>
-										<tr>
-											<td>data:catholic-theme-attribute </td>
-											<td>catholic theme</td>
-										</tr>
-										<tr>
-											<td>data:home-interior-attribute </td>
-											<td>home interior</td>
-										</tr>
-									</table>
-								</div>
+						</div>
 				</section>
--->
+
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
@@ -2026,7 +2311,7 @@ cito:citesAsEvidence ?evidence.
 						<li><a href="#" class="icon fa-instagram"></a></li>
 					</ul> -->
 					<ul class="container">
-						<li>Contacts <br> sofia.baroncini4@unibo.it <br>
+						<li><b>Contacts</b> <br> sofia.baroncini4@unibo.it <br>
 							marilena.daquino2@unibo.it <br>francesca.tomasi@unibo.it <br><a href="https://centri.unibo.it/dharc/en" target="_blank">/DH.arc</a></li>
 					</ul>
 					<ul class="copyright">
