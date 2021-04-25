@@ -524,9 +524,8 @@ cito:citesAsEvidence ?evidence.
 					</div>
 					
 				</section>
-<!--
 				<section id="second_artwork" class="wrapper style2">
-					<div class="container 150%" style="background-color:#95a8ce; padding:1em">
+					<div class="container 95%" >
 						
 						<header class="major">
 							<h3>Lorenzo Lotto <i>Venus and Cupid</i></h3>
@@ -545,7 +544,7 @@ cito:citesAsEvidence ?evidence.
 							<div class="6u 12u">
 							
 								<h4>Artwork description</h4>
-								<p>Similar solutions had been adopted to represent Lotto’s <i>Venus and Cupid </i>(see Fig. 2). The epithalamic message (l. 3) of this artwork had been interpreted on the basis of the symbols depicted, and related to the social tradition of  paintings donated as a wedding wish for wedding occasions (l. 4). 
+								<p>Lotto’s <i>Venus and Cupid </i>(see Fig. 2) is an enigmatic artwork which epithalamic message (l. 3) had been interpreted on the basis of the symbols depicted, and related to the social tradition of  paintings donated as a wedding wish for wedding occasions (l. 4). </p>
 								 <p>The numerous symbols present in the scene can have a meaning belonging to themes related to love and marriage: fertility (<i>puer mingens</i>, cone shell), typical dressing of a Venetian bride (tiara, earrings, veil) bridal chamber (myrtle crown, red cloth, incense burner), seduction (Venus’ belt), love and fidelity (knotted ribbon bracelets, rose, ivy), jealousy (snake) and the stick with which Venus punished Cupid. These meanings can be recognized thanks to coeval visual and literary sources, including the classical ones that could be known at the time (Christiansen 1986, 2018). </p> 
 								 <p>Furthermore, the theme of Cupid inviting Venus to hurry to preside over the wedding was widespread in classical epithalamic compositions and the remediation from literal to figurative medium happened by the habit of representing Venus and Paris on the inside of the lid of the wedding chests. <p> On the basis of the interpretation of symbols and wedding clothes, added to Venus's acception as the deity of conjugal love, the painting has been recognized as clearly linked to the tradition of epithalamic paintings donated in wedding occasions. In addition, Christiansen (1986) recognizes that Venus could be the portrait of the bride to whom the painting was destinated for her marriage. 
 								</p> 
@@ -565,37 +564,32 @@ cito:citesAsEvidence ?evidence.
 
 								<div class="2u 12u$(xsmall)">
 									<h6> Formal representation of <i>Venus and cupid</i> </h6>
-									<p> Modelling overwiew </p>
+									<p> The main representation is composed by more detailed ones, in order to express specific sources and attributes. The intrerpretation source of a symbol are specified by means of the class icon:IconologicalRecognition, that can support the general third level meaning interpretation of the artwork</p>
 							</div>
-							<div class="row">
-								<div class="10u 12u$(xsmall)">
-									<div class="image fit">
-										<img src="images\article_schemes\Slide10.jpg" alt="" />
-									</div>
-								</div>
-
-								<div   class="2u 12u$(xsmall)">
-									<h6> Attributes and relative sources representation </h6>
-									<p> Visual recognition can link an attribute to a symbolic meaning specifying its literary sources</p>
-							</div>
-							<p>Attributes and their symbolic meaning can be specified by means of VIR and CIDOC-CRM classes; it can be further indicated that veil, tiara and earrings are attributes of both the vir:IC9_representation “Venetian bridal dressing” and Venus’ representation; in this way, the visual recognition sources can be specified. To cite sources that allow interpreting one or more symbols meaning, it’s possible to indicate an iconological recognition associating the attribute to the concept, indicating the sources on which this relation is based by means of cito:citesAsEvidence (i. e. mirtle and red cloth associated to Claudianus’ carmen in chart 4).  
+							
+							<p>Attributes and their symbolic meaning can be specified by means of VIR and CIDOC-CRM classes. In order to relate each attribute to the corresponding subject to which it refers, every relevant portion of the representation has been interpreted as an iconographical atom (<i>vir:IC1</i>)identifying a representation, to which attributes and relevant characteristics are linked. An instance of icographical atom identifies the whole pictorial surface, individuating (<i>vir:K1</i>) the main subject (<i>vir:IC9_Representation</i>) of which more detailed representations are part (<i>vir:K20_is_composed_of</i>). Thus, there are several secondary representations, namely: Venus, Venetian bridal clothes, Puer Mingens, Cupid. The last two are linked by <i>vir:K23_connote</i>, since they are embedded in the same figure. 
+  
 							</p>
-							<p>To express that the general third level meaning recognition (epithalamic painting) is based on the attributes’ meanings, attributes are associated with the former through an instance of iconological recognition; if the latter has already been used to express a specific l. 3 meaning, this individual can support the general iconological recognition by the relation cito:givesSupportTo.  
+							<p>It can be further indicated that veil, tiara and earrings are attributes of both the representations “Venetian bridal dressing” and “Venus”; in this way, the respective visual recognition sources can be specified. In addition, we propose to model the relation <b><i>icon:hasIdentifyingAttribute</i></b> as a subclass of <i>vir:K17_has_attribute</i> in order to distinguish attributes that allow to identify a subject to those that describe relevant features of a representation.  
+							</p>
+							<p>As aforementioned, some <b>attributes meanings</b> are known thanks to <b>sources</b>. In order to annotate them, it’s possible to choose the pattern of an iconological recognition (longer path of the shortcut <i>vir:K14_symbolize</i>) to relate them to the respective meanings, citing (<i>cito:citesAsEvidence</i>) the sources (i. e. mirtle and red cloth associated to Claudianus’ carmen; Venus’ belt related to <i>Iliad</i>) and possible bibliographic references (<i>cito:citesForInformation</i>). 
+							</p>
+							<p>The <b>general third level meaning</b> (wedding wish) is an individual of a concept, related to the representation by an instance of <i>icon:IconologicalRecognition</i>. In this way, the author and references can be specified, as well as the supporting elements interpreted in the artwork (i.e. all the iconological recognitions and attributes belonging to the field of marriage and love, respectively by means of <i>cito:givesSupportTo</i> and <i>cito:citesAsEvidence</i>).  
 							</p>
 
 							<div class="row">
 								<div class="10u 12u$(xsmall)">
 									<div class="image fit">
-										<img src="images\article_schemes\Slide11.jpg" alt="" />
+										<img src="images\article_schemes_new\Venus-Cupid-2-2.svg" alt="" />
 									</div>
 								</div>
 
 								<div   class="2u 12u$(xsmall)">
-									<h6> <i>Venus and cupid</i> fourth level interpretation</h6>
-									<p> Fourth level interpretation </p>
+									<h6> <i>Venus and cupid</i>(left side) and <i>Venus and Paris</i> (right side) fourth level of interpretation</h6>
+									<p> There are several artworks depicting venus belonging to the tradition of wedding gifts. This fact can be expressed by a cultural phenomenon supported by iconological recognitions identifying the embedded meaning of "wedding wish"</p>
 							</div>
 
-							<p>The fourth meaning that recognises the painting as one of the examples of the tradition of depicting Venus in the epithalamic context is expressed in the same way as case 1 (chart 5). Thus, if representation depicting venus is associated to a Wedding wish concept, it’s possible to infer that it belongs to the cultural phenomenon of committing epithalamic paintings as wedding wish. 
+							<p>The <b>fourth level meaning</b> that recognises the painting as one of the examples of the tradition of depicting Venus in the epithalamic context is expressed in the same way as <a href="#first_artwork">Vermeer's painting</a>. Therefore, another example of an artwork depicting Venus and Paris which belongs to the tradition of epithalamic paintings is represented. Both the artworks depicting Venus are linked to the same cultural phenomenon, which recognition is supported by the common third level meaning “wedding wish”. Consequently, if a representation depicting Venus is associated to a Wedding wish concept, it’s possible to infer that it belongs to the cultural phenomenon of committing epithalamic paintings as wedding wish. 
 							</p>
 
 							</div>
@@ -608,16 +602,16 @@ cito:citesAsEvidence ?evidence.
 									<p><i>What are the subjects represented? Which attributes allow us to identify representations? </i></p>
 									<pre>
 <code>
-prefix icon: < http://example.org/> 
-prefix data: <http://w3id.org/artmeaning/> 
+prefix icon: &lt;http://example.org/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt;
 
 SELECT ?representation ?attribute
 WHERE {
 	data:weighing-with-empty-balance crm:P46_is_composed_of ?atom .
 	?atom (crm:P46 / vir:K1 ) | (vir:K1) ?representationURI .
 	?representationURI a vir:IC9_Representation ; 
-	rdfs:label ?representation ;
-	icon:hasIdentifyingAttribute ?attributeURI .
+		rdfs:label ?representation ;
+		icon:hasIdentifyingAttribute ?attributeURI .
 	?attributeURI rdfs:label ?attribute .
 }
 
@@ -630,27 +624,39 @@ WHERE {
 									<table>
 										<th>?attribute </th><th>?representation </th>
 										<tr>
-											<td>icon_dataset:venus-belt </td><td>icon_dataset:venus</td>
+											<td>Venus belt </td><td>venus</td>
 										</tr>
-										<tr><td>icon_dataset:puer-mingens-peeing </td><td>icon_dataset:puer-mingens</td>
+										<tr><td>Urine </td><td>Puer mingens</td>
 										</tr>
-										<tr><td>icon_dataset:cupid-quiver </td><td>icon_dataset:cupid</td>
+										<tr><td>Quiver </td><td>Cupid</td>
 										</tr>
-										<tr><td>icon_dataset:cupid-wings </td><td>icon_dataset:cupid</td>
+										<tr><td>Wings </td><td>Cupid</td>
 										</tr>
 									</table>
 								</div>
 							</div>
 							<div class="row">
 								<div class="6u 12u$(xsmall)">
-									<h5> cq2 </h5>
-									<p><i>### </i></p>
+									<h5> cq2.2 </h5>
+									<p><i> Which third level meanings (i.e. concepts and symbols) are expressed in the artwork? by which objects?  </i></p>
 									<pre>
-
-SELECT ?relation 
+<code>
+SELECT ?attribute ?symbol ?representation ?meaning 
 WHERE {
-icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing-souls-last-judgement
-}
+	{data:lotto-venus-cupid (&lt;&gt;|!&lt;&gt;)* ?attributeURI .
+	?attributeURI a vir:IC10_Attribute ; vir:K14_symbolize ?symbolURI; 
+		rdfs:label ?attribute .
+	?symbolURI a crm:E90_Symbolic_Object ; rdfs:label ?symbol . 
+	} 
+	UNION 
+	{ 
+	data:lotto-venus-cupid (crm:P46 / vir:K1 ) | (vir:K1) ?representationURI .
+	?representationURI vir:K17 ?meaningURI . 
+	?ic_rec assigned ?meaningURI; icon:assignsTo ?representationURI.
+	?meaningURI a crm:E28_Conceptual_Object; rdfs:label ?meaning .
+	}
+  }
+</code>
 
 									</pre>
 								</div>
@@ -658,14 +664,114 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 								<div   class="6u 12u$(xsmall)">
 									<h5> result </h5>
 									<table>
-										<th>?relation</th>
 										<tr>
-											<td>icon:symbolicallyRefersTo </td>
+											<th>?attribute</th><th>?symbol</th><th>?representation</th><th>?meaning</th>
+										</tr>
+										<tr>
+											<td></td>
+											<td></td>
+											<td>Venus and Cupid</td>
+											<td>Wedding wish</td>
+										</tr>
+										<tr>
+											<td>knotted ribbon bracelets</td>
+											<td>love</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>rose</td>
+											<td>flower of Venus</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>rose</td>
+											<td>virginity</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Venus' belt</td>
+											<td>seduction</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>ivy</td>
+											<td> eternal love</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>myrtle</td>
+											<td>conjugal love</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>myrtle</td>
+											<td>decoration for a bridal chamber</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>red cloth</td>
+											<td>decoration for a bridal chamber</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>snake</td>
+											<td>pitfalls of love</td>
+											<td></td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>cone shell</td>
+											<td>fertility</td>
+											<td></td>
+											<td></td>
 										</tr>
 									</table>
 								</div>
 							</div>
-							
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq2.3 </h5>
+									<p><i>If present, what is the provenance of the attribution of  symbolic meanings in the artwork? i.e. the bibliographic reference in which a historian has claimed the attribution. </i></p>
+									<pre>
+<code>
+SELECT DISTINCT ?provenanceURI ?provenance
+WHERE {
+	data:lotto-venus-cupid (&lt;&gt;|!&lt;&gt;)* ?attribute.
+	?attribute a vir:K10_Attribute.
+	?ic_rec icon:assignsTo ?attribute;
+		icon:assigned ?meaningURI .
+	cito:citesForInformation ?provenanceURI .
+	?provenanceURI rdfs:label ?provenance . 
+	}
+
+</code>
+
+									</pre>
+								</div>
+
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<tr>
+											<th>?provenanceURI</th><th>?provenance</th>
+										</tr>
+										<tr>
+											<td>data:christiansen-1986-lotto</td>
+											<td>Christiansen K. (September 1986) ‘Lorenzo
+Lotto and the Tradition of Epithalamic Painting’, Apollo, 124, pp. 166–73</td>
+											
+										</tr>
+									</table>
+								</div>
+							</div>
 						<div class="container 95%">
 							<h4>References</h4>
 							<p>Christiansen K. (1986) Lorenzo Lotto and the Tradition of Epithalamic Painting. <i>Apollo</i>,124:166–73 </p>
@@ -677,7 +783,8 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 							</ul>
 						</div>
 					</div>
-					
+				</div>
+<!--					
 				</section>
 				<section id="third_artwork" class="wrapper style1">
 					<div class="container 95%">
