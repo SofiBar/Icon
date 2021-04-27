@@ -784,8 +784,9 @@ Lotto and the Tradition of Epithalamic Painting’, Apollo, 124, pp. 166–73</t
 						</div>
 					</div>
 				</div>
-<!--					
+			
 				</section>
+<!--
 				<section id="third_artwork" class="wrapper style1">
 					<div class="container 95%">
 						
@@ -911,7 +912,7 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 					
 				</section> -->
 <!-- typology 2 - artwork description -->
-			<!--	<section id="fourth_artwork" class="wrapper style2">
+				<section id="fourth_artwork" class="wrapper style2">
 					<div class="container 95%">
 						
 						<header class="major">
@@ -948,22 +949,123 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 							<div class="row">
 								<div class="10u 12u$(xsmall)">
 									<div class="image fit">
-										<img src="images\article_schemes\Slide18.jpg" alt="" />
+										<img src="images\article_schemes_new\Proserpina-4.svg" alt="" />
 									</div>
 								</div>
 								 
 								<div id="imageDescr" class="2u 12u$(xsmall)">
-									<h6>Representation of the miniature and statue of <i>The rape of Proserpina</i></h6>
-									<p> Current ontologies and controlled vucabularies can shape the attributes and basic motifs changes, but a way to express the fact that these differences are meaningful doesn't currently exist</p>
+									<h6>Representation of the miniature (left side) and statue (right side) of <i>The rape of Proserpina</i></h6>
+									<p> Current ontologies and controlled vucabularies can shape the attributes and basic motifs changes, but a way to express the fact that these differences are meaningful doesn't currently exist. This is represented here by <i>icon:IconologicalRecognition</i> linking the two artworks and citing as evidence relevant attributes</p>
 							</div>
 							
-							<p>In order to relate attributes to the figure they properly identify, every character is expressed by an instance of vir:IC9_representation to which attributes are linked. The difference in the representational motifs is highlighted by associating to them the closest term of a controlled vocabulary. In this way, relevant aspects can be annotated, such as that Pluto is characterized by armour and a chariot in Fig. 4 and by the seminude figure in Fig. 5, in addition to the difference of attributes related to his figure. The concept of medieval style is further indicated by means of a <i>crm:E55_Type</i> “medieval artistic style” related to the representation. Another instance of the same class specifies the more general type “style”.     
+							<p>In order to relate attributes to the figure they properly identify, every character is expressed by an instance of <i>vir:IC9_Representation</i> to which attributes are linked. <b>Identifying and relevant attributes</b> are distiguished by respectively icon:hasIdentifyingAttribute and <i>vir:K17_has_attribute</i>. In this way, <b>attributes expressing the difference</b> of the two representations can highlight the pecuriar formal motifs used, difference enforced by associating them with the closest term of a controlled vocabulary. By way of example, it is thus possible to annotate that Pluto is characterized by armour and a chariot in Fig. 4 (trait of a courtly scene) and by the seminude figure in Fig. 5, in addition to the difference of attributes related to his figure. The concept of <b>medieval style</b> is further indicated by relating to the representation of the illumination the type “medieval artistic style”(<i>crm:E55</i>), that, in turn, has type “style”. It’s further annotated that there are the <i>characters’ written names</i> in the illumination visual surface, represented as individuals of <i>crm:E33_Linguistic_Object​</i>.      
 							</p>
-							<p>Hence, further studies can be done in order to figure out how to model a difference between two or more objects when this difference is meaningful. Indeed, a relation able to specify that an existing difference between two artworks can support the iconological recognition that relates to them the cultural phenomenon discovered doesn’t currently exist (l. 4). We expressed the difference by modelling in detail the peculiarities of the two representations (vir:IC10_Attribute), which are cited as evidence of the cultural phenomenon recognition. 
+							<p>Nevertheless, further studies can be done in order to figure out how to model a difference between two or more objects when this difference is meaningful. Indeed, a relation able to specify that an existing difference between two artworks can support the iconological recognition that relates to them the cultural phenomenon discovered doesn’t currently exist (l. 4). We expressed the difference by modelling in detail the peculiarities of the two representations (<i>vir:IC10_Attribute</i>), which are cited as evidence of the cultural phenomenon recognition. 
 							</p>
-							<p>Finally, since the tradition taken into account concerns texts, one important aspect is that, usually, representations depicting it are miniatures, thus artworks narrowly related to the text they represent. This dependence can be expressed by means of an instance of crm:P128_carries relating the object representing the manuscript to crm:E73_information_object, which individuates the specific textual passage illuminated. The same passage is the source of the vir:IC12_visual_recognition. </p>
+							<p>Finally, since the tradition taken into account concerns <b>texts</b>, one important aspect is that, usually, representations depicting it are miniatures, thus artworks narrowly related to the text they represent. This dependence can be expressed by means of an instance of <i>crm:P128_carries</i> relating the object representing the manuscript to <i>crm:E73_Information_Object</i>, which individuates the specific textual passage illuminated. The same passage is the source of the <i>vir:IC12_Visual_Recognition</i>. </p>
 							</div>
 						</div>
+						<div class="container 95%">
+							<h4>Competency questions</h4>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> CQ4.1 </h5>
+									<p><i>CQ4.1 What are the attributes in common with the representations of the two artworks? </i></p>
+									<pre>
+<code>
+prefix icon: &lt;http://example.org/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt;
+
+SELECT ?attr
+WHERE {
+	data:rape-proserpina-ms-francais6362-f161r (crm:P46 / vir:K1 ) | (vir:K1) ?representationURI.
+	?representationURI (vir:K17_has_attribute|icon:hasIdentifyingAttribute) ?attribute1.
+	data:rape-proserpina-bernini (crm:P46 / vir:K1 ) | (vir:K1) ?representation2.
+	?representation2 (vir:K17_has_attribute|icon:hasIdentifyingAttribute)  ?attribute2 .
+
+	?attribute1 rdfs_label ?attr .
+	?attribute2 rdfs_label ?attr  .
+}
+
+
+</code>
+									</pre>
+								</div>
+
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<th>?attr </th>
+										<tr>
+											<td>three dog heads</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<div class="6u 12u$(xsmall)">
+									<h5> cq4.2 </h5>
+									<p><i> What are the differing attributes of the subject in the two representations?</i></p>
+									<pre>
+<code>
+SELECT DISTINCT ?attribute
+WHERE { 
+	{
+	data:rape-proserpina-ms-francais6362-f161r (crm:P46 / vir:K1 | vir:K1) ?representationURI.
+	?representationURI vir:K17_has_as_attribute ?attribute1.
+	?attribute1 vir:K21 ?iconclass; rdfs:label ?attribute.
+		MINUS {
+		data:rape-proserpina-bernini (crm:P46 / vir:K1 | vir:K1) ?representation2.
+		?representation2 vir:K17_has_as_attribute ?attribute2 .
+		?attribute2 vir:K21 ?iconclass }
+	}
+
+	UNION {
+	data:rape-proserpina-bernini (crm:P46 / vir:K1 | vir:K1) ?representationURI.
+	?representationURI vir:K17_has_as_attribute ?attribute1.
+	?attribute1 vir:K21 ?iconclass; rdfs:label ?attribute.
+		MINUS {
+		data:rape-proserpina-ms-francais6362-f161r (crm:P46 / vir:K1 | vir:K1) ?representation2.
+		?representation2 vir:K17_has_as_attribute ?attribute2 .
+		?attribute2 vir:K21 ?iconclass }
+}
+
+</code>
+
+									</pre>
+								</div>
+
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<tr>
+											<th>?attribute</th>
+										</tr>
+										<tr>
+											<td>armor</td>
+										</tr>
+										<tr>
+											<td>knight</td>
+										</tr>
+										<tr>
+											<td>cart</td>
+										</tr>
+										<tr>
+											<td>court dress</td>
+										</tr>
+										<tr>
+											<td>seminude</td>
+										<tr>
+											<td>serpentine shape</td>
+										</tr>
+										<tr>
+											<td>arms raised upward</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							
+
 						<div class="container 95%">
 							<h4>References</h4>
 							<p>Panofsky, E. (1962). <i>Studies in iconology: Humanistic themes in the art of the Renaissance</i>. New York: Harper & Row.</p>
@@ -974,11 +1076,11 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 							</ul>
 						</div>	
 					</div>
-					
+					</div>
 				</section>
-			-->
+		
 
-				<section id="fifth_artwork" class="wrapper style2">
+				<section id="fifth_artwork" class="wrapper style1">
 					<div class="container 95%">
 						
 						<header class="major">
@@ -999,7 +1101,8 @@ icon_dataset:act-weighing-with-empty-balance ?relation icon_dataset:act-weighing
 							<div class="6u 12u">
 							
 								<h4>Artwork description</h4>
-								<p><i>Laocoon and his sons</i> episode (originally taken from Vergil’s <i>Aeneid</i>. 2, 199-233) is another example belonging to the tradition recognized by Panofsky and Saxl of classical themes depicted in a fully medieval style, deprived of their classical motifs. It is represented in a XIV century illuminated manuscript carrying the Aeneid text (Biblioteca Apostolica Vaticana, <a href="https://digi.vatlib.it/view/MSS_Vat.lat.2761" target="_blank">ms vat. 2761, folio 15r</a>).  </p>
+								<p><i>Laocoon and his sons</i> episode (originally taken from Vergil’s <i>Aeneid</i>. 2, 199-233) is another example belonging to the tradition recognized by Panofsky and Saxl of classical themes depicted in a fully medieval style, deprived of their classical motifs. It is represented in a XIV century illuminated manuscript carrying the <i>Aeneid</i> text (Biblioteca Apostolica Vaticana, <a href="https://digi.vatlib.it/view/MSS_Vat.lat.2761" target="_blank">ms vat. 2761, folio 15r</a>).  </p>
+								<p>Here, “the Laocoon who makes the sacrifice becomes a wild and bald old priest who attacks the little bull with [...] an ax, while the two little boys float around [...] and the sea snakes appear briskly in a pool of water” (Panofsky, Saxl, 1933, p. 253). </p>
 								<p>The scene is very different from the classical style of the Vatican statue (Fig. 6), in which characters are seminude figures depicted while they are entangled in sea snakes. It focuses on their desperation, and on the beauty of the proportioned human body. It is worth noting that the <b>stylistic difference</b> between the scene depicted in the manuscript (showing medieval motifs) and the classic statue is evidence of the cultural phenomenon wherein artists revisit classic motifs according to the contemporary style. 
 								</p> 
 								<p>The two representations differ not only for the style, since they also present <b>different attributes and details</b>. The miniature shows an ax and the presence of water, whereas the statue presents just the protagonists of the episode and the sea snakes. Furthermore, the medieval clothes is another peculiar characteristic of the illumination in contrast with the seminude classical figures that’s interesting to annotate. </p>
@@ -1356,7 +1459,7 @@ WHERE {
 					
 				</section>
 -->
-				<section id="eighth_artwork" class="wrapper style1">
+				<section id="eighth_artwork" class="wrapper style2">
 					<div class="container 95%">
 						
 						<header class="major">
