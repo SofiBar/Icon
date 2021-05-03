@@ -320,14 +320,11 @@
 								<div class="image fit captioned">
 									<a href="#eleventh_artwork">
 										<img src="images/img17_section2.jpg" alt="" />
-										<h3 style="color:#c2c2d6">From <i>The rape of Proserpina</i> to <i>Time and Opportunity</i>(under processing)</h3>
+										<h3>From <i>The rape of Proserpina</i> to <i>Time and Opportunity</i></h3>
 									</a>
 								</div>
 						</div>
-						<!--<ul class="actions">
-							<li><a href="#" class="button special big">Nulla luctus</a></li>
-							<li><a href="#" class="button big">Sed vulputate</a></li>
-						</ul> -->
+						
 					</div>
 				</section>
 
@@ -2110,8 +2107,8 @@ WHERE {
 					</div>
 					
 				</section>
-<!--
-				<section id="eleventh_artwork" class="wrapper style2">
+
+				<section id="eleventh_artwork" class="wrapper style1">
 					<div class="container 95%">
 						
 						<header class="major">
@@ -2144,53 +2141,116 @@ WHERE {
 							<div class="row">
 								<div class="10u 12u$(xsmall)">
 									<div class="image fit">
-										<img src="images\article_schemes\Slide38.jpg" alt="" />
+										<img src="images\article_schemes_new\Occasio-11.svg" alt="" />
 									</div>
 								</div>
 								 
 								<div id="imageDescr" class="2u 12u$(xsmall)">
-									<h6> Chart 20 </h6>
-									<p>  ####</p>
+									<h6> Formal representation of Bernini's statue (left side) and the two interpretations of Regnaudin's one </h6>
+									<p>Bernini's Rape of Proserpina is the visual prototype of Regnaudin's sculpture representing <i>The rape of Cybele</i>, wrongly interpretated as <i>Time carrying off the truth</i> in 1699. The direct correspondance to the model is underlined by icon:showsMotifsOf linking each attribute or character to its exact prototype in Bernini's sculpture.</p>
 							</div>
 							<div class="row">
 								<div class="10u 12u$(xsmall)">
 									<div class="image fit">
-										<img src="images\article_schemes\Slide39.jpg" alt="" />
+										<img src="images\article_schemes_new\Occasio-11-2.svg" alt="" />
 									</div>
 								</div>
 								 
 								<div id="imageDescr" class="2u 12u$(xsmall)">
-									<h6> Chart 21 </h6>
-									<p> ###</p>
+									<h6> Formal representation of Regnaudin's <i>Time carryng off the Truth</i>(left side) and Le Marchand's <i>Time and Opportunity</i> (right side) </h6>
+									<p>The wrong interpretation of Regnaudin's artwork is in turn the prototype of Le Marchand's one. Thus, the relation icon:showsMotifsOf links subject of this two sculptures. </p>
 							</div>
-							<p>All the subjects considered can be described with VIR classes (l. 1, l. 2). In particular, the relation vir:K4i_has_visual_prototype links each artwork to its visual model (charts 20, 21).   
+							<p>All the subjects considered can be described with VIR classes (l. 1, l. 2). In particular, the relation vir:K4i_has_visual_prototype links each artwork to its visual model. </p>
+							<p>The popularity of Rubens’ and Poussin's new interpretation of the iconography led to wrongly interpret Regnaudin’s sculpture. Thus, two vir:IC12_Visual_Recognition relate the same sculpture to two different representations, one of them having a time-span “1699” and linked to Rubens’ and Poussin’s artworks. Moreover, the evolution of this subject to Time and Opportunity is explained by different interpretations of the concepts involved (l. 3). To express the difference between them, two concepts describing the positive or negative attitude of Time toward Truth or Occasio are linked to the two representations by  <i>vir:K14_symbolize</i>.  
 							</p>
-							<p>The popularity of Rubens’ and Poussin's new interpretation of the iconography led to wrongly interpret Regnaudin’s sculpture. Thus, two vir:IC12_visual_recognition relate the same sculpture to two different representations, one of them having a time-span “1699” and linked to Rubens’ and Poussin’s artworks (chart 20). Moreover, the evolution of this subject to Time and Opportunity is explained by different interpretations of the concepts involved (l. 3; chart 21). To express the difference between them, two concepts describing the positive or negative attitude of Time toward Truth or Occasio are linked to the two representations by a hypothetical “expresses” property, shortcut of the third level interpretation. In addition, an iconological recognition relates to Time and Opportunity’s representation the concept resulting from Fregoso’s text considered, indicated as evidence.
+							<p>In order to show the direct correspondance between each motif copied, we added the property <i>icon:showsMotifsOf</i> relating what is depicted in the representations. Indeed, it’s possible to see the <b>chain of copied figures and attributes</b> from Le Marchand’s statue to the prototype of Bernini, passing through the two interpretations of Regnaudin’s sculpture as The rape of Cybele or Time carrying off the Truth. 
 							</p>
 
+							</div>
+						<div class="container 95%">
+							<h4>Competency questions</h4>
 							<div class="row">
-								<div class="10u 12u$(xsmall)">
-									<div class="image fit">
-										<img src="images\article_schemes\Slide40.jpg" alt="" />
-									</div>
+								<div class="6u 12u$(xsmall)">
+									<h5> CQ11.1 </h5>
+									<p><i> What subjects depicted in Time and Opportunity representation show motif of other subject represented in other artwork, that  can in turn be copy of other subjects? Return all the artworks involved.  </i></p>
+									<pre>
+<code>
+prefix icon: &lt;http://w3id.org/icon/&gt;
+prefix data: &lt;http://w3id.org/artmeaning/&gt; 
+
+SELECT ?subject1 ?subject2 ?subject3 ?artwork2 ?artwork3 
+WHERE {
+	data:lemarchand-time-opportunity-repr (icon:hasIdentifyingAttribute | vir:k17_has_attribute | vir:k24_portray ) ?subject1URI
+	?subject1URI icon:showsMotifsOf ?subject2URI; 
+		rdfs:label ?subject1.
+	?subject2URI rdfs:label ?subject2. 
+	?representation2 (icon:hasIdentifyingAttribute | vir:k17_has_attribute | vir:k24_portray ) ?subject2 ;
+		^vir:K1_denotes ?artwork2URI .
+	?artwork2URI rdfs:label ?artwork2.
+
+	OPTIONAL {
+		?subject2URI icon:showsMotifsOf ?subject3URI; 
+		rdfs:label ?subject3.
+		?representation3 (icon:hasIdentifyingAttribute | vir:k17_has_attribute | vir:k24_portray ) ?subject3;
+			^vir:K1_denotes ?artwork3URI .
+		?artwork3URI rdfs:label ?artwork3.
+	}
+} 
+
+</code>
+									</pre>
 								</div>
 								 
-								<div id="imageDescr" class="2u 12u$(xsmall)">
-									<h6> Chart 22 </h6>
-									<p> #### </p>
+								<div   class="6u 12u$(xsmall)">
+									<h5> result </h5>
+									<table>
+										<tr>
+										<th>?subject1</th><th>?subject2</th><th>?subject3</th><th>?artwork2</th><th>?artwork3</th>
+										</tr>
+										<tr>
+											<td>
+											Chance </td>
+											<td>Truth</td>
+											<td>Proserpina</td>
+											<td>Regnaudin, the Rape of Cybele or Time Carrying off the Truth</td>
+											<td>Bernini, the Rape of Proserpina</td>
+										</tr>
+										<tr>
+											<td>
+											Time</td>
+											<td>Time</td>
+											<td>Pluto</td>
+											<td>Regnaudin, the Rape of Cybele or Time Carrying off the Truth</td>
+											<td>Bernini, the Rape of Proserpina</td>
+										</tr>
+										<tr>
+											<td>
+											Lion</td>
+											<td>Lion</td>
+											<td>Cerberus</td>
+											<td>Regnaudin, the Rape of Cybele or Time Carrying off the Truth</td>
+											<td>Bernini, the Rape of Proserpina</td>
+										</tr>
+									</table>
+								</div>
 							</div>
 
-							<p>Finally, the evolution of the concepts involved is identified by another instance of iconological recognition (l. 3): in this way, more relevant examples considered by Wittkower can be added to the results described. Nevertheless, this solution doesn’t express exactly what’s the aim to depict, since it considers meaning evolutions and not the formal motifs retrieval. Thus, the chart 22 shows how the iconological recognition instance is a modelling that could properly represent this situation, albeit more studies are needed, since a pure formal motifs evolution cannot be identified as a cultural phenomenon or a concept. </p>
-							</div>
 						</div>
-						<ul class="actions">
-							<li><a href="#three" class="button special">The case studies</a></li>
-							<li><a href="#typology4" class="button">Typology overwiew</a></li>
-						</ul>						
+
+						<div class="container 95%">
+							<h4>References</h4>
+							<p>Wittkower, R. (1938). <i>Chance, Time and Virtue</i>. Journal of the Warburg Institute, 1(4): 313-321. doi:10.2307/749998 </p>
+							
+							<ul class="actions">
+								<li><a href="#three" class="button special">The case studies</a></li>
+								<li><a href="#typology4" class="button">Typology overwiew</a></li>
+							</ul>
+						</div>	
+						
 					</div>
 					
 				</section>
--->
+
 
 		
 				<section id="four" class="wrapper style3 special">
@@ -2361,7 +2421,7 @@ WHERE {
 										</tr>
 										<tr>
 											<td><i>Allegory of Salvation</i> relief</td>
-											<td>lassical motifs copied deprived of their classical content during the Middle Ages</td>
+											<td>classical motifs copied deprived of their classical content during the Middle Ages</td>
 											<td>c. XIII</td>
 											<td>Venice, St. Mark</td>
 										</tr>
